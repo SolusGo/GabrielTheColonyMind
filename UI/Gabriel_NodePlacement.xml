@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context ID="GabrielNodePlacement" Hidden="1">
+  <Box Anchor="R,T" Offset="30,170" Size="420,245" Style="BGBlock_ClearTopBar">
+    <Grid Size="420,245" Padding="18,14" Style="Grid9DetailFive140">
+      <Label ID="Title" Anchor="C,T" Offset="0,8" Font="TwCenMT24" ColorSet="Beige_Black_Alpha" String="{TXT_KEY_GABRIEL_NODE_PANEL_TITLE}" />
+      <Label ID="Instructions" Anchor="C,T" Offset="0,48" Size="378,84" WrapWidth="378" Font="TwCenMT16" ColorSet="Beige_Black_Alpha" />
+      <Label ID="Candidate" Anchor="C,T" Offset="0,132" Size="378,28" Font="TwCenMT18" ColorSet="Cream_Black" />
+      <Stack Anchor="C,B" Offset="0,18" StackGrowth="Right" Padding="8">
+        <GridButton ID="PreviousButton" Size="85,32" Style="SmallButton">
+          <Label Anchor="C,C" Font="TwCenMT16" String="{TXT_KEY_GABRIEL_NODE_PREVIOUS}" />
+        </GridButton>
+        <GridButton ID="NextButton" Size="85,32" Style="SmallButton">
+          <Label Anchor="C,C" Font="TwCenMT16" String="{TXT_KEY_GABRIEL_NODE_NEXT}" />
+        </GridButton>
+        <GridButton ID="PlaceButton" Size="120,32" Style="SmallButton">
+          <Label Anchor="C,C" Font="TwCenMT16" String="{TXT_KEY_GABRIEL_NODE_PLACE}" />
+        </GridButton>
+        <GridButton ID="LaterButton" Size="65,32" Style="SmallButton">
+          <Label Anchor="C,C" Font="TwCenMT16" String="{TXT_KEY_GABRIEL_NODE_LATER}" />
+        </GridButton>
+      </Stack>
+    </Grid>
+  </Box>
+</Context>

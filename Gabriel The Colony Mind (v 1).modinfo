@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="7c80858b-1d6b-4a9c-9d6f-f793c10b16e4" version="1">
+  <Properties>
+    <Name>Gabriel — The Colony Mind</Name>
+    <Stability>Alpha</Stability>
+    <Teaser>Many minds. One purpose. Preparation makes chance unnecessary.</Teaser>
+    <Description>A defensive Science civilization led by Gabriel. Prepare territorial Colony Nodes, weaken invaders with Swarm Hosts, and connect mature cities through Colony Nexuses.</Description>
+    <Authors>SolusGo</Authors>
+    <SpecialThanks>Community Patch Project</SpecialThanks>
+    <HideSetupGame>0</HideSetupGame>
+    <Homepage>https://github.com/SolusGo/GabrielTheColonyMind</Homepage>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>0</SupportsMultiplayer>
+    <SupportsHotSeat>0</SupportsHotSeat>
+    <SupportsMac>0</SupportsMac>
+    <ReloadAudioSystem>0</ReloadAudioSystem>
+    <ReloadLandmarkSystem>0</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>1</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>0</ReloadUnitSystem>
+  </Properties>
+  <Dependencies>
+    <Mod id="d1b6328c-ff44-4b0d-aad7-c657f83610cd" minversion="1" maxversion="999" title="(1) Community Patch" />
+  </Dependencies>
+  <References />
+  <Blocks />
+  <Files>
+    <File md5="42A7469CF6D4DDF5C8261C20BC7D951D" import="0">SQL/00_Gabriel_Core.sql</File>
+    <File md5="9A3F45BCE9008E54DF60CB8DDE507822" import="0">SQL/10_Gabriel_Text.sql</File>
+    <File md5="8E0E808EADF28E22166F237283B37515" import="0">Lua/Gabriel_Core.lua</File>
+    <File md5="7C71FFFB308400BE74553B55E681464E" import="0">UI/Gabriel_NodePlacement.xml</File>
+    <File md5="842D04CDFFAA2FB67BB805006D529F36" import="0">UI/Gabriel_NodePlacement.lua</File>
+    <File md5="103A4A451BA0B49C5F676116C6E80CCC" import="1">Art/Gabriel_LeaderScene.xml</File>
+    <File md5="C844F1CCE1253FBB83020DED9A388B0F" import="1">Art/Atlases/Gabriel_Alpha_128.dds</File>
+    <File md5="F9B7D6108FF488C30024D2F4BB0F6658" import="1">Art/Atlases/Gabriel_Alpha_64.dds</File>
+    <File md5="2A0E6F0F0A2F4299BD8C21582413F070" import="1">Art/Atlases/Gabriel_Alpha_48.dds</File>
+    <File md5="63CA0708DDE78727A9C7148C99DFE3B8" import="1">Art/Atlases/Gabriel_Alpha_32.dds</File>
+    <File md5="0B65FF502672A4D6E2B0AD8D6CCC48B8" import="1">Art/Atlases/Gabriel_Alpha_24.dds</File>
+    <File md5="F0CF0959796ABD52240E348DA60C8F77" import="1">Art/Atlases/Gabriel_Alpha_16.dds</File>
+    <File md5="D5D12AB664B64289C32582C823A22118" import="1">Art/Atlases/Gabriel_Civ_256.dds</File>
+    <File md5="F9A2029A918D5DDF42554081F3AEA160" import="1">Art/Atlases/Gabriel_Civ_128.dds</File>
+    <File md5="F1CD37237E010663973CF09016EA8EE9" import="1">Art/Atlases/Gabriel_Civ_80.dds</File>
+    <File md5="CA507C01CCE264409924F32370895B66" import="1">Art/Atlases/Gabriel_Civ_64.dds</File>
+    <File md5="8A9E762B1C172DFB7C29B4D41EA48ECA" import="1">Art/Atlases/Gabriel_Civ_45.dds</File>
+    <File md5="095162847F8ADD468B24D44D6CB436CB" import="1">Art/Atlases/Gabriel_Civ_32.dds</File>
+    <File md5="5F94566BCF772A7572B141BA2B3C97E9" import="1">Art/Atlases/Gabriel_Leader_256.dds</File>
+    <File md5="2C8CD6F137D8B02873B72F7B0EBE2B45" import="1">Art/Atlases/Gabriel_Leader_128.dds</File>
+    <File md5="2C6CEF486E8AA258D482BDD3DC0BECB9" import="1">Art/Atlases/Gabriel_Leader_64.dds</File>
+    <File md5="3529E8BD4808BA6353929FD269648048" import="1">Art/Atlases/Gabriel_Objects_256.dds</File>
+    <File md5="6F7988BD8EA99CB469DBF769A275AE1C" import="1">Art/Atlases/Gabriel_Objects_128.dds</File>
+    <File md5="F517891F4B2F298514FC4B629368F261" import="1">Art/Atlases/Gabriel_Objects_80.dds</File>
+    <File md5="1F7B96157D82AB1C3FF538B2163E9332" import="1">Art/Atlases/Gabriel_Objects_64.dds</File>
+    <File md5="6B8B33F0E87F395801170A82699A7F0D" import="1">Art/Atlases/Gabriel_Objects_45.dds</File>
+    <File md5="0B6F0CF46AE6D1ECCB6A5DA15903E8FD" import="1">Art/Atlases/Gabriel_Objects_32.dds</File>
+    <File md5="95FB015DAE12318E4963D21467B74BA8" import="1">Art/Screens/Gabriel_Diplomacy.dds</File>
+    <File md5="B104484EC6487703B283385A10CD1CFE" import="1">Art/Screens/Gabriel_DOM.dds</File>
+    <File md5="2E77569B41839E118BB84A848FC87CC9" import="1">Art/Screens/Gabriel_Map.dds</File>
+    <File md5="E6EDFE88738D9D414F30D2919C210C7A" import="0">Art/Source/Gabriel_Concept_Sheet.png</File>
+    <File md5="71962041BE384FA95AAF32BBA8D23E5E" import="0">Art/Source/Gabriel_Leader_Master.png</File>
+    <File md5="391E59F1541B144AE0B59F124147434F" import="0">README.md</File>
+    <File md5="04D015599031833684ECA73AAF4D14B6" import="0">PATCHNOTES.md</File>
+    <File md5="3387E880ED781E92BBD6A21466BA8395" import="0">IMPLEMENTATION_NOTES.md</File>
+    <File md5="3AE807D28FCD5E29C5D2BA05E918C4EC" import="0">TESTING.md</File>
+    <File md5="B0D695C99DE8B949BA73CF5E33750022" import="0">Tools/build_art.py</File>
+    <File md5="04F0515D36DF1A702C2ECFA2A26CDE9B" import="0">Tools/validate_database.py</File>
+  </Files>
+  <Actions>
+    <OnModActivated>
+      <UpdateDatabase>SQL/00_Gabriel_Core.sql</UpdateDatabase>
+      <UpdateDatabase>SQL/10_Gabriel_Text.sql</UpdateDatabase>
+    </OnModActivated>
+  </Actions>
+  <EntryPoints>
+    <EntryPoint type="InGameUIAddin" file="Lua/Gabriel_Core.lua">
+      <Name>Gabriel Colony Network</Name>
+      <Description>Runs city Node timers, network effects, Nexus scaling, detection, AI placement, and Infestation.</Description>
+    </EntryPoint>
+    <EntryPoint type="InGameUIAddin" file="UI/Gabriel_NodePlacement.xml">
+      <Name>Gabriel Node Placement</Name>
+      <Description>Allows the active human player to choose legal Colony Node plots.</Description>
+    </EntryPoint>
+  </EntryPoints>
+</Mod>
