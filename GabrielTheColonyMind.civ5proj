@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Deploy" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <ProjectGuid>{FA280BDB-E291-40D0-9921-C28CB8CB124D}</ProjectGuid>
+    <Name>Gabriel — The Colony Mind</Name>
+    <SafeName>Gabriel The Colony Mind</SafeName>
+    <Guid>7c80858b-1d6b-4a9c-9d6f-f793c10b16e4</Guid>
+    <Teaser>Many minds. One purpose. Preparation makes chance unnecessary.</Teaser>
+    <Description>A defensive Science civilization led by Gabriel. Prepare territorial Colony Nodes, weaken invaders with Swarm Hosts, and connect mature cities through Colony Nexuses.</Description>
+    <Authors>SolusGo</Authors>
+    <SpecialThanks>Community Patch Project</SpecialThanks>
+    <Homepage>https://github.com/SolusGo/GabrielTheColonyMind</Homepage>
+    <AssemblyName>GabrielTheColonyMind</AssemblyName>
+    <RootNamespace>GabrielTheColonyMind</RootNamespace>
+    <Civ5Path>G:\SteamLibrary\steamapps\common\Sid Meier's Civilization V</Civ5Path>
+    <Civ5UserPath>C:\Users\ThatOneYi\Documents\My Games\Sid Meier's Civilization 5</Civ5UserPath>
+    <AffectsSavedGames>true</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <HideSetupGame>false</HideSetupGame>
+    <SupportsSinglePlayer>true</SupportsSinglePlayer>
+    <SupportsMultiplayer>false</SupportsMultiplayer>
+    <SupportsHotSeat>false</SupportsHotSeat>
+    <SupportsMac>false</SupportsMac>
+    <ReloadAudioSystem>false</ReloadAudioSystem>
+    <ReloadLandmarkSystem>false</ReloadLandmarkSystem>
+    <ReloadStrategicViewSystem>true</ReloadStrategicViewSystem>
+    <ReloadUnitSystem>false</ReloadUnitSystem>
+    <ModActions>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>SQL/00_Gabriel_Core.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>SQL/10_Gabriel_Text.sql</FileName>
+      </Action>
+    </ModActions>
+    <ModContent>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Gabriel Colony Network</Name>
+        <Description>Runs city Node timers, network effects, Nexus scaling, detection, AI placement, and Infestation.</Description>
+        <FileName>Lua/Gabriel_Core.lua</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>Gabriel Node Placement</Name>
+        <Description>Allows the active human player to choose legal Colony Node plots.</Description>
+        <FileName>UI/Gabriel_NodePlacement.xml</FileName>
+      </Content>
+    </ModContent>
+    <ModVersion>1</ModVersion>
+    <Stability>Alpha</Stability>
+    <ModDependencies>
+      <Association>
+        <Type>Mod</Type>
+        <Name>(1) Community Patch</Name>
+        <Id>d1b6328c-ff44-4b0d-aad7-c657f83610cd</Id>
+        <MinVersion>1</MinVersion>
+        <MaxVersion>999</MaxVersion>
+      </Association>
+    </ModDependencies>
+    <ModReferences />
+    <ModBlockers />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Package Only' ">
+    <PackageMod>true</PackageMod>
+    <DeployMod>false</DeployMod>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Deploy Only' ">
+    <PackageMod>false</PackageMod>
+    <DeployMod>true</DeployMod>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="SQL\00_Gabriel_Core.sql">
+      <SubType>SQL</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="SQL\10_Gabriel_Text.sql">
+      <SubType>SQL</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Lua\Gabriel_Core.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\Gabriel_NodePlacement.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="UI\Gabriel_NodePlacement.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Gabriel_LeaderScene.xml">
+      <SubType>XML</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\Atlases\Gabriel_Alpha_128.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Alpha_64.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Alpha_48.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Alpha_32.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Alpha_24.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Alpha_16.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Civ_256.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Civ_128.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Civ_80.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Civ_64.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Civ_45.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Civ_32.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Leader_256.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Leader_128.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Leader_64.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Objects_256.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Objects_128.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Objects_80.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Objects_64.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Objects_45.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Atlases\Gabriel_Objects_32.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Screens\Gabriel_Diplomacy.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Screens\Gabriel_DOM.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Screens\Gabriel_Map.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Source\Gabriel_Concept_Sheet.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="Art\Source\Gabriel_Leader_Master.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="Art\Source\Gabriel_Swarm_Host_Icon.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="Art\Source\Gabriel_Civ_Icon.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="Art\Source\Gabriel_Colony_Nexus_Icon.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="README.md"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="PATCHNOTES.md"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="IMPLEMENTATION_NOTES.md"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="TESTING.md"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="Tools\build_art.py"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="Tools\validate_database.py"><ImportIntoVFS>False</ImportIntoVFS></Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQL\" />
+    <Folder Include="Lua\" />
+    <Folder Include="UI\" />
+    <Folder Include="Art\" />
+    <Folder Include="Art\Atlases\" />
+    <Folder Include="Art\Screens\" />
+    <Folder Include="Art\Source\" />
+    <Folder Include="Tools\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
+</Project>

@@ -47,6 +47,17 @@ def circle_portrait(source: Image.Image, size: int, center=(0.5, 0.5)) -> Image.
     return canvas
 
 
+def supplied_icon(source: Image.Image, size: int, transparent_corners=False) -> Image.Image:
+    """Resize supplied finished icon art without redrawing or reframing it."""
+    icon = cover(source, (size, size))
+    if transparent_corners:
+        scale = 4
+        mask = Image.new("L", (size * scale, size * scale), 0)
+        ImageDraw.Draw(mask).ellipse((0, 0, size * scale - 1, size * scale - 1), fill=255)
+        icon.putalpha(mask.resize((size, size), RESAMPLE))
+    return icon
+
+
 def ant_mark(size: int, alpha_only=False) -> Image.Image:
     scale = size / 256.0
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0) if alpha_only else DARK)
@@ -78,6 +89,9 @@ def save_dds(image: Image.Image, path: Path) -> None:
 def build() -> None:
     concept = Image.open(SOURCE / "Gabriel_Concept_Sheet.png").convert("RGBA")
     leader = Image.open(SOURCE / "Gabriel_Leader_Master.png").convert("RGBA")
+    swarm_host_icon = Image.open(SOURCE / "Gabriel_Swarm_Host_Icon.png").convert("RGBA")
+    civ_icon = Image.open(SOURCE / "Gabriel_Civ_Icon.png").convert("RGBA")
+    colony_nexus_icon = Image.open(SOURCE / "Gabriel_Colony_Nexus_Icon.png").convert("RGBA")
 
     # Full-screen art.
     diplomacy = cover(leader, (1600, 900), center=(0.49, 0.50))
@@ -93,23 +107,17 @@ def build() -> None:
     save_dds(cover(concept, (1600, 900), center=(0.50, 0.50)), SCREENS / "Gabriel_Map.dds")
 
     # Canonical object crops from the supplied concept sheet.
-    unit_master = crop_master(concept, (128, 630, 375, 792))
-    nexus_master = crop_master(concept, (1046, 423, 1288, 594))
     node_master = crop_master(concept, (750, 423, 936, 594))
     infestation_master = crop_master(concept, (718, 646, 871, 770))
     leader_master = crop_master(leader, (90, 5, 840, 925))
 
     for size in (256, 128, 80, 64, 45, 32):
-        save_dds(ant_mark(size), ATLASES / f"Gabriel_Civ_{size}.dds")
+        save_dds(supplied_icon(civ_icon, size), ATLASES / f"Gabriel_Civ_{size}.dds")
         row = Image.new("RGBA", (size * 4, size), (0, 0, 0, 0))
-        sources = (
-            (unit_master, (0.12, 0.50)),
-            (nexus_master, (0.50, 0.52)),
-            (node_master, (0.45, 0.52)),
-            (infestation_master, (0.60, 0.45)),
-        )
-        for i, (source, center) in enumerate(sources):
-            row.alpha_composite(circle_portrait(source, size, center=center), (i * size, 0))
+        row.alpha_composite(supplied_icon(swarm_host_icon, size, transparent_corners=True), (0, 0))
+        row.alpha_composite(supplied_icon(colony_nexus_icon, size, transparent_corners=True), (size, 0))
+        row.alpha_composite(circle_portrait(node_master, size, center=(0.45, 0.52)), (size * 2, 0))
+        row.alpha_composite(circle_portrait(infestation_master, size, center=(0.60, 0.45)), (size * 3, 0))
         save_dds(row, ATLASES / f"Gabriel_Objects_{size}.dds")
 
     for size in (256, 128, 64):

@@ -140,6 +140,12 @@ Requires **(1) Community Patch**, mod ID `d1b6328c-ff44-4b0d-aad7-c657f83610cd`.
 3. Enable **Gabriel — The Colony Mind** in the Mods menu.
 4. Start a new game; the mod affects saved-game data and should not be added mid-campaign.
 
+## ModBuddy
+
+Open `GabrielTheColonyMind.civ5proj` in the Civilization V SDK's ModBuddy. The project uses the existing mod ID and version, declares the Community Patch dependency, and reproduces the SQL activation order, UI add-ins, and VFS import settings from the checked-in `.modinfo`.
+
+Use the **Default** configuration to package and deploy, **Package Only** to build without deploying, or **Deploy Only** to deploy without packaging. The project is configured for the local Civ V installation at `G:\SteamLibrary\steamapps\common\Sid Meier's Civilization V` and user data under `Documents\My Games\Sid Meier's Civilization 5`.
+
 ## Known Limitations
 
 - The human placement panel is UI-driven, so this release declares single-player support. AI placement is deterministic, but multiplayer synchronization of human placement has not been claimed.
@@ -157,7 +163,8 @@ The canonical +1% city defense uses CP's `BuildingDefenseModifier`. Dynamic city
 ## Art & Presentation
 
 - Custom Gabriel diplomacy and silent Dawn of Man screens are derived from the supplied concept and generated standalone leader master.
-- Custom civilization color/alpha atlases include all required sizes.
+- The supplied dedicated Swarm Host, civilization, and Colony Nexus icons are used directly across all required atlas sizes.
+- Custom civilization alpha atlases include all required sizes.
 - Leader portrait atlases include 256/128/64.
 - Swarm Host, Colony Nexus, Colony Node, and promotion atlases include 256/128/80/64/45/32 in a four-column layout.
 - All portrait icons use a clean gold circular Civ V-style frame.

@@ -1,4 +1,15 @@
+# ModBuddy and Visual Studio local state
+.vs/
+*.civ5proj.user
+*.civ5suo
+*.suo
+
+# Local compiler intermediates
+obj/
+
+# Python tooling caches and temporary files
 *.bak
 *.tmp
 __pycache__/
+*.pyc
 .DS_Store
