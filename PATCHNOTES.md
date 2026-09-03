@@ -7,6 +7,7 @@
 - Complete Gabriel / The Colony civilization definition, leader personality, city list, spies, Civilopedia, strategy, Dawn of Man text, and custom diplomacy.
 - Independent, game-speed-scaled Colony Node timers for every city.
 - Human Node placement panel with map highlighting, cycling, camera focus, deferral, and gameplay-side revalidation.
+- Full Colony Network dashboard with live Node, readiness, unit coverage, city connection, Nexus, and preparation status.
 - Deterministic AI Node scoring and automatic placement.
 - Persistent neutral-Node builder ownership and foreign-claim dismantling.
 - CP-native Node yields and radius-one vision.
@@ -28,7 +29,8 @@
 
 ### Fixed
 
-- Not applicable; initial release.
+- Completed the Civilization and leader Civilopedia key families so every history, strategy, title, and fact section renders correctly.
+- Matched the standard Community Patch starting-unit package, removing the additional custom starting unit.
 
 ### Technical
 

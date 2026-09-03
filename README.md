@@ -65,6 +65,8 @@ Connected Colony military units can detect submarines while standing within the 
 
 A Colony Node provides +1 Science, +1 Production, and CP-native radius-one vision. Human players receive a placement panel that cycles, highlights, and focuses legal plots within three tiles of the generating city. AI players score and place Nodes automatically, prioritizing city adjacency, hills, enemy-facing borders, and network continuity.
 
+Human Gabriel players also receive a Colony Network dashboard in the upper-right HUD. It summarizes active and pillaged Nodes, ready cities, covered military units, and every city's preparation progress, adjacent connections, percentage bonuses, Nexus Science, and placement state.
+
 Legal placement excludes foreign territory, cities, water, mountains, impassable tiles, natural wonders, resources, and protected improvements such as Great Person, civilization-unique, permanent, ruin, or barbarian-camp improvements. An ordinary Farm, Mine, Trading Post, or similar improvement may be replaced deliberately. Neutral placement is supported. Builder ownership is saved separately; a neutral Node remains active until another civilization claims the tile, at which point it is removed.
 
 ## Unique Promotions
@@ -80,7 +82,7 @@ Place some Nodes beside cities for Science and city defense, then extend others 
 
 ## Early Game Strategy
 
-Gabriel's Ancient opening is deliberately average. Scout likely borders, settle defensible city sites, and keep workers available to repair future Nodes. The first Nodes are precious; an opponent that attacks before the 30-turn Standard interval can deny the network's strongest terrain.
+Gabriel's Ancient opening uses the standard Community Patch starting package with no additional custom unit. Scout likely borders, settle defensible city sites, and keep workers available to repair future Nodes. The first Nodes are precious; an opponent that attacks before the 30-turn Standard interval can deny the network's strongest terrain.
 
 ## Mid Game Strategy
 
@@ -151,7 +153,7 @@ Use the **Default** configuration to package and deploy, **Package Only** to bui
 - The human placement panel is UI-driven, so this release declares single-player support. AI placement is deterministic, but multiplayer synchronization of human placement has not been claimed.
 - CP's stable `AttackMod = 5` is used for the canonical offensive-only +5% outgoing-damage identity. This modifies attack strength rather than multiplying final post-combat HP damage by exactly 1.05.
 - Civ V promotions expose one `SeeInvisible` type. The shipped detection promotion covers the standard submarine invisibility type; arbitrary invisibility types introduced by other mods are not automatically discovered.
-- The supplied concept sheet provides complete portrait/icon imagery but no Civ V `.gr2` landmark model. The Node therefore uses stock Trading Post landmark geometry with a custom Colony Node portrait and all custom gameplay.
+- The supplied concept sheet provides complete portrait/icon imagery but no Civ V `.gr2` landmark model. The Node therefore uses stock Fort landmark geometry as a clear on-map marker, with a custom Colony Node portrait and unchanged custom gameplay.
 - This environment supported database execution, Lua static checks, XML parsing, DDS decoding, and asset inspection, but not an actual launched Civ V session. The in-game matrix in `TESTING.md` remains the release gate.
 
 ## Technical Notes

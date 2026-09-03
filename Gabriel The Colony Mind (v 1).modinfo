@@ -26,11 +26,11 @@
   <References />
   <Blocks />
   <Files>
-    <File md5="42A7469CF6D4DDF5C8261C20BC7D951D" import="0">SQL/00_Gabriel_Core.sql</File>
-    <File md5="9A3F45BCE9008E54DF60CB8DDE507822" import="0">SQL/10_Gabriel_Text.sql</File>
-    <File md5="8E0E808EADF28E22166F237283B37515" import="0">Lua/Gabriel_Core.lua</File>
-    <File md5="7C71FFFB308400BE74553B55E681464E" import="0">UI/Gabriel_NodePlacement.xml</File>
-    <File md5="842D04CDFFAA2FB67BB805006D529F36" import="0">UI/Gabriel_NodePlacement.lua</File>
+    <File md5="332D8910BF2B88FAE56E1D66481B4EA7" import="0">SQL/00_Gabriel_Core.sql</File>
+    <File md5="FD14F61AB3A5214A721181681DDD9084" import="0">SQL/10_Gabriel_Text.sql</File>
+    <File md5="8E30FC222967BF06323DA565D43E55CC" import="0">Lua/Gabriel_Core.lua</File>
+    <File md5="2E204A6E270D037D8CAEFCE3216A6764" import="0">UI/Gabriel_NodePlacement.xml</File>
+    <File md5="83A938C0791991ADFE020BB144AC438F" import="0">UI/Gabriel_NodePlacement.lua</File>
     <File md5="469481B677DBD43FE533B15F3232A7E3" import="1">Art/Gabriel_LeaderScene.xml</File>
     <File md5="C844F1CCE1253FBB83020DED9A388B0F" import="1">Art/Atlases/Gabriel_Alpha_128.dds</File>
     <File md5="F9B7D6108FF488C30024D2F4BB0F6658" import="1">Art/Atlases/Gabriel_Alpha_64.dds</File>
@@ -38,21 +38,21 @@
     <File md5="63CA0708DDE78727A9C7148C99DFE3B8" import="1">Art/Atlases/Gabriel_Alpha_32.dds</File>
     <File md5="0B65FF502672A4D6E2B0AD8D6CCC48B8" import="1">Art/Atlases/Gabriel_Alpha_24.dds</File>
     <File md5="F0CF0959796ABD52240E348DA60C8F77" import="1">Art/Atlases/Gabriel_Alpha_16.dds</File>
-    <File md5="45ABD4642593124CF6B05557490D9E83" import="1">Art/Atlases/Gabriel_Civ_256.dds</File>
-    <File md5="4FC1BBDB029829E606EA6AF993D03377" import="1">Art/Atlases/Gabriel_Civ_128.dds</File>
-    <File md5="BD344131F2EC7CC8656DB7DB7B942357" import="1">Art/Atlases/Gabriel_Civ_80.dds</File>
-    <File md5="F0C3DDEB993FF41B758F67270C6704AB" import="1">Art/Atlases/Gabriel_Civ_64.dds</File>
-    <File md5="B1683846E811C638A47F4EBB171C3158" import="1">Art/Atlases/Gabriel_Civ_45.dds</File>
-    <File md5="484836A5170DDC6BCBE9B6F93226F2C2" import="1">Art/Atlases/Gabriel_Civ_32.dds</File>
-    <File md5="5F94566BCF772A7572B141BA2B3C97E9" import="1">Art/Atlases/Gabriel_Leader_256.dds</File>
-    <File md5="2C8CD6F137D8B02873B72F7B0EBE2B45" import="1">Art/Atlases/Gabriel_Leader_128.dds</File>
-    <File md5="2C6CEF486E8AA258D482BDD3DC0BECB9" import="1">Art/Atlases/Gabriel_Leader_64.dds</File>
-    <File md5="CB3AAF614CD45EFEE3E23DE84F9946D3" import="1">Art/Atlases/Gabriel_Objects_256.dds</File>
-    <File md5="6A78684572350C79148ADD66A53FFDA3" import="1">Art/Atlases/Gabriel_Objects_128.dds</File>
-    <File md5="8B7008062514A3135D058BABB5B048D8" import="1">Art/Atlases/Gabriel_Objects_80.dds</File>
-    <File md5="FB040823A3FE5B7CE68754ACE25E50FF" import="1">Art/Atlases/Gabriel_Objects_64.dds</File>
-    <File md5="A35B4F6DE105CCBD233537B52997BE03" import="1">Art/Atlases/Gabriel_Objects_45.dds</File>
-    <File md5="D36B874559A128EB7B6603AA0F2F1539" import="1">Art/Atlases/Gabriel_Objects_32.dds</File>
+    <File md5="B06CCD3C463B89160CA96D33C99C544A" import="1">Art/Atlases/Gabriel_Civ_256.dds</File>
+    <File md5="995F720914DB737F150A5CE6941962BB" import="1">Art/Atlases/Gabriel_Civ_128.dds</File>
+    <File md5="5416BABA059B26C6D013F7A7CE0EB137" import="1">Art/Atlases/Gabriel_Civ_80.dds</File>
+    <File md5="D40BCA41572D9952A92C9477E460BE3D" import="1">Art/Atlases/Gabriel_Civ_64.dds</File>
+    <File md5="BC761619DE1DEBABFD7CECB727851411" import="1">Art/Atlases/Gabriel_Civ_45.dds</File>
+    <File md5="D84690EF11237ECC92BC5A60D10DF432" import="1">Art/Atlases/Gabriel_Civ_32.dds</File>
+    <File md5="16DE088C1E418F5E2362CC9274EC8EA2" import="1">Art/Atlases/Gabriel_Leader_256.dds</File>
+    <File md5="8ABEB02EC65382C8691EAB4223E9A5AB" import="1">Art/Atlases/Gabriel_Leader_128.dds</File>
+    <File md5="011352C9BEE6419518400A61BF590EF3" import="1">Art/Atlases/Gabriel_Leader_64.dds</File>
+    <File md5="9321FABE0BC371A8E56978B4D0D91DC9" import="1">Art/Atlases/Gabriel_Objects_256.dds</File>
+    <File md5="A8F46550B98FBE590D11BF8E2DE1A65B" import="1">Art/Atlases/Gabriel_Objects_128.dds</File>
+    <File md5="60F49CBC606A29ECA5DB87468EA7459E" import="1">Art/Atlases/Gabriel_Objects_80.dds</File>
+    <File md5="515AF868203544AC4E449E4F6CAB5418" import="1">Art/Atlases/Gabriel_Objects_64.dds</File>
+    <File md5="633AB38D2C451CFEA0C63DE67D903DB6" import="1">Art/Atlases/Gabriel_Objects_45.dds</File>
+    <File md5="818F34748DE9FD3903344D6832995109" import="1">Art/Atlases/Gabriel_Objects_32.dds</File>
     <File md5="95FB015DAE12318E4963D21467B74BA8" import="1">Art/Screens/Gabriel_Diplomacy.dds</File>
     <File md5="B104484EC6487703B283385A10CD1CFE" import="1">Art/Screens/Gabriel_DOM.dds</File>
     <File md5="2E77569B41839E118BB84A848FC87CC9" import="1">Art/Screens/Gabriel_Map.dds</File>
@@ -61,12 +61,12 @@
     <File md5="B0CFC6D7E56D323383C38C00DE0B6057" import="0">Art/Source/Gabriel_Swarm_Host_Icon.png</File>
     <File md5="66B1FD2B7981A8F4FF6AA94EDDFA4B53" import="0">Art/Source/Gabriel_Civ_Icon.png</File>
     <File md5="F5ABA3F7901DAF39B73EC2276C8DD757" import="0">Art/Source/Gabriel_Colony_Nexus_Icon.png</File>
-    <File md5="66DF4CB6D5AB77F480B49F51D47BC31B" import="0">README.md</File>
-    <File md5="CBD6683CAA6781DDFEF7DB281A58D12D" import="0">PATCHNOTES.md</File>
+    <File md5="C2D47A3082B56F9B09E36CD7FC88914E" import="0">README.md</File>
+    <File md5="83AED9CD7BBAA34E701635105726FDF3" import="0">PATCHNOTES.md</File>
     <File md5="0EE5EE676E29159310CE71A35CCE8A37" import="0">IMPLEMENTATION_NOTES.md</File>
     <File md5="B9F0A599AD1C88E383B526DBE0477503" import="0">TESTING.md</File>
-    <File md5="55FBEBF51337888D528CB246BD621F5C" import="0">Tools/build_art.py</File>
-    <File md5="04F0515D36DF1A702C2ECFA2A26CDE9B" import="0">Tools/validate_database.py</File>
+    <File md5="0C967AD506AD5450A2F85BFF880D7973" import="0">Tools/build_art.py</File>
+    <File md5="F56EE357B7436E2E28281127590A5A65" import="0">Tools/validate_database.py</File>
   </Files>
   <Actions>
     <OnModActivated>

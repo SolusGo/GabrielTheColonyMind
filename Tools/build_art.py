@@ -47,9 +47,21 @@ def circle_portrait(source: Image.Image, size: int, center=(0.5, 0.5)) -> Image.
     return canvas
 
 
-def supplied_icon(source: Image.Image, size: int, transparent_corners=False) -> Image.Image:
-    """Resize supplied finished icon art without redrawing or reframing it."""
-    icon = cover(source, (size, size))
+def supplied_icon(
+    source: Image.Image,
+    size: int,
+    transparent_corners: bool = True,
+    crop: float = 0.055,
+) -> Image.Image:
+    """Fit supplied icon art to a Civ V slot with consistent visual padding.
+
+    The supplied masters contain a wide black margin around their circular
+    frames.  Cropping that margin before the atlas resize keeps the subject at
+    the same apparent scale as the game's stock 64/128 px icons.
+    """
+    margin = round(min(source.size) * crop)
+    framed = source.crop((margin, margin, source.width - margin, source.height - margin))
+    icon = cover(framed, (size, size))
     if transparent_corners:
         scale = 4
         mask = Image.new("L", (size * scale, size * scale), 0)
@@ -109,13 +121,15 @@ def build() -> None:
     # Canonical object crops from the supplied concept sheet.
     node_master = crop_master(concept, (750, 423, 936, 594))
     infestation_master = crop_master(concept, (718, 646, 871, 770))
-    leader_master = crop_master(leader, (90, 5, 840, 925))
+    # A deliberately tight portrait crop: the 128 px leader slot must read as
+    # a face/upper-body portrait rather than a miniaturized diplomacy screen.
+    leader_master = crop_master(leader, (180, 0, 820, 920))
 
     for size in (256, 128, 80, 64, 45, 32):
         save_dds(supplied_icon(civ_icon, size), ATLASES / f"Gabriel_Civ_{size}.dds")
         row = Image.new("RGBA", (size * 4, size), (0, 0, 0, 0))
-        row.alpha_composite(supplied_icon(swarm_host_icon, size, transparent_corners=True), (0, 0))
-        row.alpha_composite(supplied_icon(colony_nexus_icon, size, transparent_corners=True), (size, 0))
+        row.alpha_composite(supplied_icon(swarm_host_icon, size), (0, 0))
+        row.alpha_composite(supplied_icon(colony_nexus_icon, size), (size, 0))
         row.alpha_composite(circle_portrait(node_master, size, center=(0.45, 0.52)), (size * 2, 0))
         row.alpha_composite(circle_portrait(infestation_master, size, center=(0.60, 0.45)), (size * 3, 0))
         save_dds(row, ATLASES / f"Gabriel_Objects_{size}.dds")

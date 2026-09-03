@@ -219,6 +219,9 @@ local function RebuildNodeCache()
             if owner >= 0 then nodeCache[index] = owner end
         end
     end
+    -- Share the live cache with the UI context so its dashboard never needs a
+    -- per-turn full-map scan. The table remains current as Nodes change.
+    MapModData.GabrielNodeOwners = nodeCache
     Debug('Node cache rebuilt with persistent builder ownership')
 end
 

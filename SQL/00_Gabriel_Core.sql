@@ -96,9 +96,12 @@ INSERT INTO Civilization_FreeBuildingClasses VALUES
 ('CIVILIZATION_GABRIEL_COLONY', 'BUILDINGCLASS_PALACE');
 INSERT INTO Civilization_FreeTechs VALUES
 ('CIVILIZATION_GABRIEL_COLONY', 'TECH_AGRICULTURE');
-INSERT INTO Civilization_FreeUnits (CivilizationType, UnitClassType, UnitAIType, Count) VALUES
-('CIVILIZATION_GABRIEL_COLONY', 'UNITCLASS_SETTLER', 'UNITAI_SETTLE', 1),
-('CIVILIZATION_GABRIEL_COLONY', 'UNITCLASS_WORKER', 'UNITAI_WORKER', 1);
+-- Mirror the standard CP starting package. The selected era supplies the
+-- ordinary escort separately; adding another unit here creates an extra start.
+INSERT INTO Civilization_FreeUnits (CivilizationType, UnitClassType, UnitAIType, Count)
+SELECT 'CIVILIZATION_GABRIEL_COLONY', UnitClassType, UnitAIType, Count
+FROM Civilization_FreeUnits
+WHERE CivilizationType = 'CIVILIZATION_AMERICA';
 INSERT INTO Civilization_Start_Along_Ocean VALUES
 ('CIVILIZATION_GABRIEL_COLONY', 0);
 
@@ -133,7 +136,9 @@ UPDATE Gabriel_NodeCopy SET
  Help = 'TXT_KEY_IMPROVEMENT_GABRIEL_COLONY_NODE_HELP',
  SpecificCivRequired = 1,
  CivilizationType = 'CIVILIZATION_GABRIEL_COLONY',
- ArtDefineTag = 'ART_DEF_IMPROVEMENT_TRADING_POST',
+ -- Reuse the stock Fort landmark so a placed Node is unmistakable on-map.
+ -- This is visual only; DefenseModifier remains zero below.
+ ArtDefineTag = 'ART_DEF_IMPROVEMENT_FORT',
  OutsideBorders = 1,
  IgnoreOwnership = 0,
  CreatedByGreatPerson = 0,
