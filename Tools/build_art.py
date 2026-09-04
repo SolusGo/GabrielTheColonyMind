@@ -52,6 +52,7 @@ def supplied_icon(
     size: int,
     transparent_corners: bool = True,
     crop: float = 0.055,
+    slot_fill: float = 1.0,
 ) -> Image.Image:
     """Fit supplied icon art to a Civ V slot with consistent visual padding.
 
@@ -61,13 +62,19 @@ def supplied_icon(
     """
     margin = round(min(source.size) * crop)
     framed = source.crop((margin, margin, source.width - margin, source.height - margin))
-    icon = cover(framed, (size, size))
+    icon_size = max(1, round(size * slot_fill))
+    icon = cover(framed, (icon_size, icon_size))
     if transparent_corners:
         scale = 4
-        mask = Image.new("L", (size * scale, size * scale), 0)
-        ImageDraw.Draw(mask).ellipse((0, 0, size * scale - 1, size * scale - 1), fill=255)
-        icon.putalpha(mask.resize((size, size), RESAMPLE))
-    return icon
+        mask = Image.new("L", (icon_size * scale, icon_size * scale), 0)
+        ImageDraw.Draw(mask).ellipse((0, 0, icon_size * scale - 1, icon_size * scale - 1), fill=255)
+        icon.putalpha(mask.resize((icon_size, icon_size), RESAMPLE))
+    if icon_size == size:
+        return icon
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    inset = (size - icon_size) // 2
+    canvas.alpha_composite(icon, (inset, inset))
+    return canvas
 
 
 def ant_mark(size: int, alpha_only=False) -> Image.Image:
@@ -95,7 +102,14 @@ def ant_mark(size: int, alpha_only=False) -> Image.Image:
 
 def save_dds(image: Image.Image, path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    image.convert("RGBA").save(path, format="DDS", pixel_format="DXT5")
+    rgba = image.convert("RGBA")
+    if rgba.width % 4 == 0 and rgba.height % 4 == 0:
+        rgba.save(path, format="DDS", pixel_format="DXT5")
+    else:
+        # Civ V's compact tech-tree icons are 45 px high. DXT block
+        # compression is unreliable for that non-multiple-of-four dimension;
+        # stock-compatible 45 px atlases use uncompressed 32-bit DDS instead.
+        rgba.save(path, format="DDS")
 
 
 def build() -> None:
@@ -128,7 +142,10 @@ def build() -> None:
     for size in (256, 128, 80, 64, 45, 32):
         save_dds(supplied_icon(civ_icon, size), ATLASES / f"Gabriel_Civ_{size}.dds")
         row = Image.new("RGBA", (size * 4, size), (0, 0, 0, 0))
-        row.alpha_composite(supplied_icon(swarm_host_icon, size), (0, 0))
+        row.alpha_composite(
+            supplied_icon(swarm_host_icon, size, crop=0.0, slot_fill=0.92),
+            (0, 0),
+        )
         row.alpha_composite(supplied_icon(colony_nexus_icon, size), (size, 0))
         row.alpha_composite(circle_portrait(node_master, size, center=(0.45, 0.52)), (size * 2, 0))
         row.alpha_composite(circle_portrait(infestation_master, size, center=(0.60, 0.45)), (size * 3, 0))

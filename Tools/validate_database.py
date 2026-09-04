@@ -29,6 +29,14 @@ def dds_dimensions(path: Path) -> tuple[int, int]:
     return width, height
 
 
+def dds_fourcc(path: Path) -> bytes:
+    """Read the DDS pixel-format FourCC; zero bytes mean uncompressed RGB(A)."""
+    header = path.read_bytes()[:88]
+    if len(header) < 88 or header[:4] != b"DDS ":
+        raise ValueError(f"not a DDS file: {path}")
+    return header[84:88]
+
+
 def remove_existing_gabriel_rows(database: sqlite3.Connection) -> None:
     """Return a copied live debug DB to its pre-Gabriel state for repeatable checks."""
     tables = [
@@ -191,6 +199,19 @@ def main() -> int:
         print(f"FAIL ART DIMENSIONS: {wrong_dimensions}")
         return 1
     print("PASS ART DIMENSIONS: every atlas exactly matches its registered icon grid")
+
+    compressed_45px = [
+        filename
+        for _, size, filename in database.execute(
+            "SELECT Atlas, IconSize, Filename FROM IconTextureAtlases "
+            "WHERE Atlas LIKE 'GABRIEL_%' AND IconSize = 45"
+        )
+        if dds_fourcc(ROOT / "Art" / "Atlases" / filename) != b"\x00\x00\x00\x00"
+    ]
+    if compressed_45px:
+        print(f"FAIL ART FORMAT: 45px tech-tree atlases must be uncompressed: {compressed_45px}")
+        return 1
+    print("PASS ART FORMAT: 45px tech-tree atlases use uncompressed RGBA DDS")
 
     modinfo = ROOT / "Gabriel The Colony Mind (v 1).modinfo"
     if modinfo.exists():

@@ -8,6 +8,7 @@
 - Independent, game-speed-scaled Colony Node timers for every city.
 - Human Node placement panel with map highlighting, cycling, camera focus, deferral, and gameplay-side revalidation.
 - Full Colony Network dashboard with live Node, readiness, unit coverage, city connection, Nexus, and preparation status.
+- Corrected the Swarm Host's compact 45px tech-tree atlas encoding and normalized its 64px visual padding.
 - Deterministic AI Node scoring and automatic placement.
 - Persistent neutral-Node builder ownership and foreign-claim dismantling.
 - CP-native Node yields and radius-one vision.
