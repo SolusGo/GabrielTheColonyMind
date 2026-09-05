@@ -86,7 +86,12 @@ end
 local function NodeOwner(plot)
     local index = PlotIndex(plot)
     if index < 0 then return -1 end
-    return SavedNumber('GABRIEL_NODE_OWNER_' .. tostring(index), -1)
+    local savedOwner = SavedNumber('GABRIEL_NODE_OWNER_' .. tostring(index), -1)
+    if savedOwner >= 0 then return savedOwner end
+    -- Older saves may contain a Node before the persistent builder key was
+    -- introduced.  Owned plots still provide a safe ownership fallback.
+    local plotOwner = plot:GetOwner()
+    return plotOwner ~= nil and plotOwner or -1
 end
 
 local function IsActiveNodeForPlayer(plot, playerID)
@@ -281,29 +286,17 @@ local function BuildNetworkSnapshot(player, playerID)
     }
 
     if IMPROVEMENT_NODE ~= nil then
-        local knownNodes = MapModData.GabrielNodeOwners
-        if knownNodes ~= nil then
-            for index, builderID in pairs(knownNodes) do
-                if builderID == playerID then
-                    local plot = Map.GetPlotByIndex(index)
-                    if IsActiveNodeForPlayer(plot, playerID) then
-                        snapshot.activeNodes = snapshot.activeNodes + 1
-                    else
-                        snapshot.pillagedNodes = snapshot.pillagedNodes + 1
-                    end
-                end
-            end
-        else
-            -- One-time fallback if the UI context initializes before gameplay.
-            for index = 0, Map.GetNumPlots() - 1 do
-                local plot = Map.GetPlotByIndex(index)
-                if plot ~= nil and plot:GetImprovementType() == IMPROVEMENT_NODE
-                    and NodeOwner(plot) == playerID then
-                    if IsActiveNodeForPlayer(plot, playerID) then
-                        snapshot.activeNodes = snapshot.activeNodes + 1
-                    else
-                        snapshot.pillagedNodes = snapshot.pillagedNodes + 1
-                    end
+        -- Read the map as the source of truth.  MapModData can be initialized
+        -- before a saved game's improvement state is restored, leaving an
+        -- empty cache and incorrectly displaying zero Nodes.
+        for index = 0, Map.GetNumPlots() - 1 do
+            local plot = Map.GetPlotByIndex(index)
+            if plot ~= nil and plot:GetImprovementType() == IMPROVEMENT_NODE
+                and NodeOwner(plot) == playerID then
+                if IsActiveNodeForPlayer(plot, playerID) then
+                    snapshot.activeNodes = snapshot.activeNodes + 1
+                else
+                    snapshot.pillagedNodes = snapshot.pillagedNodes + 1
                 end
             end
         end
