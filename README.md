@@ -164,7 +164,7 @@ The canonical +1% city defense uses CP's `BuildingDefenseModifier`. Dynamic city
 
 ## Art & Presentation
 
-- Custom Gabriel diplomacy and silent Dawn of Man screens are derived from the supplied concept and generated standalone leader master.
+- Custom Gabriel diplomacy uses the generated standalone leader master, while Dawn of Man uses the dedicated Colony Network map artwork.
 - The supplied dedicated Swarm Host, civilization, and Colony Nexus icons are used directly across all required atlas sizes.
 - Custom civilization alpha atlases include all required sizes.
 - Leader portrait atlases include 256/128/64.

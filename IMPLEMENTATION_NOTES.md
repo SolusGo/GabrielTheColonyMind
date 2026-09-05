@@ -32,6 +32,6 @@ Static and AI logic is deterministic, but the human placement selection originat
 
 ## Art Decisions
 
-The supplied concept sheet is the canonical source for object portraits. A clean standalone leader scene was generated from that sheet and retained as the diplomacy/Dawn of Man master. All DDS files are DXT5. Each atlas size is independently rendered from master source, with no resize cascade.
+The supplied concept sheet is the canonical source for object portraits. A clean standalone leader scene is used for diplomacy, while the dedicated Colony Network map artwork is used for Dawn of Man. All DDS files are DXT5. Each atlas size is independently rendered from master source, with no resize cascade.
 
 No landmark `.gr2` was supplied or generatable from raster art, so the Colony Node uses Trading Post landmark geometry. This affects only the world model, not its portrait, yields, visibility, or gameplay identity.
