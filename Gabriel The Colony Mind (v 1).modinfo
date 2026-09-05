@@ -26,7 +26,7 @@
   <References />
   <Blocks />
   <Files>
-    <File md5="31C17829672F15D1EB025CDBA313C12C" import="0">SQL/00_Gabriel_Core.sql</File>
+    <File md5="DE7AE3860973712900AA250CC150D88D" import="0">SQL/00_Gabriel_Core.sql</File>
     <File md5="FD14F61AB3A5214A721181681DDD9084" import="0">SQL/10_Gabriel_Text.sql</File>
     <File md5="8E30FC222967BF06323DA565D43E55CC" import="0">Lua/Gabriel_Core.lua</File>
     <File md5="2E204A6E270D037D8CAEFCE3216A6764" import="0">UI/Gabriel_NodePlacement.xml</File>
@@ -63,9 +63,9 @@
     <File md5="66B1FD2B7981A8F4FF6AA94EDDFA4B53" import="0">Art/Source/Gabriel_Civ_Icon.png</File>
     <File md5="F5ABA3F7901DAF39B73EC2276C8DD757" import="0">Art/Source/Gabriel_Colony_Nexus_Icon.png</File>
     <File md5="7AA08A3B76966028BECE0CCEC7DC4EB7" import="0">Art/Source/Gabriel_Colony_Network_Map.png</File>
-    <File md5="C2D47A3082B56F9B09E36CD7FC88914E" import="0">README.md</File>
+    <File md5="019345137BC14D6CA79AB37D63FC6595" import="0">README.md</File>
     <File md5="6FB5D8404F01E8A7B16892B41606669B" import="0">PATCHNOTES.md</File>
-    <File md5="0EE5EE676E29159310CE71A35CCE8A37" import="0">IMPLEMENTATION_NOTES.md</File>
+    <File md5="70BCD19CD5133066E3866E7BB7D60ECD" import="0">IMPLEMENTATION_NOTES.md</File>
     <File md5="B9F0A599AD1C88E383B526DBE0477503" import="0">TESTING.md</File>
     <File md5="9CFC518C96CF19E98B542FD5A86F4F19" import="0">Tools/build_art.py</File>
     <File md5="C9777167069EAD10E2309088E13688B6" import="0">Tools/validate_database.py</File>
