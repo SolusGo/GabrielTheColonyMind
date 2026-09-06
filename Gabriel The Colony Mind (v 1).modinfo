@@ -30,7 +30,7 @@
     <File md5="FD14F61AB3A5214A721181681DDD9084" import="0">SQL/10_Gabriel_Text.sql</File>
     <File md5="8E30FC222967BF06323DA565D43E55CC" import="0">Lua/Gabriel_Core.lua</File>
     <File md5="2E204A6E270D037D8CAEFCE3216A6764" import="0">UI/Gabriel_NodePlacement.xml</File>
-    <File md5="F88C32C87110949544875376BAA2651B" import="0">UI/Gabriel_NodePlacement.lua</File>
+    <File md5="0CBCD27AE6D06D6991C5C9B489EDEF13" import="0">UI/Gabriel_NodePlacement.lua</File>
     <File md5="469481B677DBD43FE533B15F3232A7E3" import="1">Art/Gabriel_LeaderScene.xml</File>
     <File md5="C844F1CCE1253FBB83020DED9A388B0F" import="1">Art/Atlases/Gabriel_Alpha_128.dds</File>
     <File md5="F9B7D6108FF488C30024D2F4BB0F6658" import="1">Art/Atlases/Gabriel_Alpha_64.dds</File>
@@ -66,7 +66,7 @@
     <File md5="019345137BC14D6CA79AB37D63FC6595" import="0">README.md</File>
     <File md5="6FB5D8404F01E8A7B16892B41606669B" import="0">PATCHNOTES.md</File>
     <File md5="70BCD19CD5133066E3866E7BB7D60ECD" import="0">IMPLEMENTATION_NOTES.md</File>
-    <File md5="B9F0A599AD1C88E383B526DBE0477503" import="0">TESTING.md</File>
+    <File md5="3C7D43275B28BE59B1E4306AFBF1F171" import="0">TESTING.md</File>
     <File md5="9CFC518C96CF19E98B542FD5A86F4F19" import="0">Tools/build_art.py</File>
     <File md5="C9777167069EAD10E2309088E13688B6" import="0">Tools/validate_database.py</File>
   </Files>

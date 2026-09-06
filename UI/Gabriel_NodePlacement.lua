@@ -14,6 +14,8 @@ local gCandidates = {}
 local gSelection = 1
 local gPlacementOpen = false
 local gDashboardOpen = false
+local gCityScreenOpen = false
+local gDiplomacyOpen = false
 local gSelectedCityID = nil
 local gCityDropdownEntries = {}
 local RefreshDashboard
@@ -57,6 +59,17 @@ local function ActiveGabrielPlayer()
     local player = Players[playerID]
     if not IsGabrielPlayer(player) then return nil, playerID end
     return player, playerID
+end
+
+local function IsDiplomacyOpen()
+    if gDiplomacyOpen then return true end
+    return UI ~= nil
+        and UI.GetLeaderHeadRootUp ~= nil
+        and UI.GetLeaderHeadRootUp()
+end
+
+local function IsOverlayBlocked()
+    return gCityScreenOpen or IsDiplomacyOpen()
 end
 
 local function HasBuilding(city, buildingID)
@@ -206,6 +219,7 @@ end
 
 local function ShowPlacement(playerID, cityID)
     if playerID ~= Game.GetActivePlayer() then return end
+    if IsOverlayBlocked() then return end
     local player = Players[playerID]
     local city = player and player:GetCityByID(cityID) or nil
     if city == nil then return end
@@ -421,7 +435,7 @@ end
 
 local function SetDashboardOpen(open)
     local player = ActiveGabrielPlayer()
-    gDashboardOpen = open == true and player ~= nil
+    gDashboardOpen = open == true and player ~= nil and not IsOverlayBlocked()
     Controls.NetworkPanel:SetHide(not gDashboardOpen)
     if gDashboardOpen then
         HidePlacement()
@@ -432,7 +446,7 @@ end
 
 RefreshDashboard = function()
     local player, playerID = ActiveGabrielPlayer()
-    if player == nil then
+    if player == nil or IsOverlayBlocked() then
         Controls.NetworkButton:SetHide(true)
         Controls.NetworkPanel:SetHide(true)
         gDashboardOpen = false
@@ -529,6 +543,38 @@ ContextPtr:SetInputHandler(InputHandler)
 
 LuaEvents.Gabriel_NodePlacementAvailable.Add(ShowPlacement)
 LuaEvents.Gabriel_NodePlacementResult.Add(OnPlacementResult)
+
+local function HideOverlayForScreen()
+    HidePlacement()
+    gDashboardOpen = false
+    Controls.NetworkPanel:SetHide(true)
+    Controls.NetworkButton:SetHide(true)
+end
+
+if Events.SerialEventEnterCityScreen ~= nil then
+    Events.SerialEventEnterCityScreen.Add(function()
+        gCityScreenOpen = true
+        HideOverlayForScreen()
+    end)
+end
+if Events.SerialEventExitCityScreen ~= nil then
+    Events.SerialEventExitCityScreen.Add(function()
+        gCityScreenOpen = false
+        if RefreshDashboard ~= nil then RefreshDashboard() end
+    end)
+end
+if Events.AILeaderMessage ~= nil then
+    Events.AILeaderMessage.Add(function()
+        gDiplomacyOpen = true
+        HideOverlayForScreen()
+    end)
+end
+if Events.LeavingLeaderViewMode ~= nil then
+    Events.LeavingLeaderViewMode.Add(function()
+        gDiplomacyOpen = false
+        if RefreshDashboard ~= nil then RefreshDashboard() end
+    end)
+end
 
 if Events.ActivePlayerTurnStart ~= nil then
     Events.ActivePlayerTurnStart.Add(function()

@@ -62,4 +62,5 @@ The following checks require Civ V itself and are not claimed complete until man
 - [ ] Policies, ideologies, research agreements, espionage, religion, trade, World Congress, and Great Scientists behave normally.
 - [ ] City-States/barbarians/team checks do not receive Colony-only effects.
 - [ ] Tech tree, production, Civilopedia, unit flags, diplomacy, map, and Dawn of Man art render correctly at several resolutions.
+- [ ] Colony Network button and panels hide in City View and diplomacy, then the button returns on the world map.
 - [ ] Long game/Huge map turn processing remains responsive.
