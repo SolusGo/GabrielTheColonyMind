@@ -56,13 +56,13 @@
     <File md5="95FB015DAE12318E4963D21467B74BA8" import="1">Art/Screens/Gabriel_Diplomacy.dds</File>
     <File md5="B104484EC6487703B283385A10CD1CFE" import="1">Art/Screens/Gabriel_DOM.dds</File>
     <File md5="2E77569B41839E118BB84A848FC87CC9" import="1">Art/Screens/Gabriel_Map.dds</File>
-    <File md5="8898DA50FDD05522E25740C30F1F1714" import="1">Art/Screens/Gabriel_Colony_Network_Map.dds</File>
+    <File md5="080A3E951067DD76709832A54D027767" import="1">Art/Screens/Gabriel_Colony_Network_Map.dds</File>
     <File md5="E6EDFE88738D9D414F30D2919C210C7A" import="0">Art/Source/Gabriel_Concept_Sheet.png</File>
     <File md5="71962041BE384FA95AAF32BBA8D23E5E" import="0">Art/Source/Gabriel_Leader_Master.png</File>
     <File md5="B0CFC6D7E56D323383C38C00DE0B6057" import="0">Art/Source/Gabriel_Swarm_Host_Icon.png</File>
     <File md5="66B1FD2B7981A8F4FF6AA94EDDFA4B53" import="0">Art/Source/Gabriel_Civ_Icon.png</File>
     <File md5="F5ABA3F7901DAF39B73EC2276C8DD757" import="0">Art/Source/Gabriel_Colony_Nexus_Icon.png</File>
-    <File md5="7AA08A3B76966028BECE0CCEC7DC4EB7" import="0">Art/Source/Gabriel_Colony_Network_Map.png</File>
+    <File md5="A0DAE37A19BD3B07A9BD24969D07D744" import="0">Art/Source/Gabriel_Colony_Network_Map.png</File>
     <File md5="019345137BC14D6CA79AB37D63FC6595" import="0">README.md</File>
     <File md5="6FB5D8404F01E8A7B16892B41606669B" import="0">PATCHNOTES.md</File>
     <File md5="70BCD19CD5133066E3866E7BB7D60ECD" import="0">IMPLEMENTATION_NOTES.md</File>

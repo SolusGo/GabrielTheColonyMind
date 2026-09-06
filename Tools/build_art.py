@@ -131,6 +131,11 @@ def build() -> None:
     dom = Image.alpha_composite(dom, shade)
     save_dds(dom, SCREENS / "Gabriel_DOM.dds")
     save_dds(cover(concept, (1600, 900), center=(0.50, 0.50)), SCREENS / "Gabriel_Map.dds")
+    # The civilization-selection preview uses the dedicated network panorama;
+    # keep this separate from the ordinary map art so the selection screen
+    # always shows Gabriel's connected colony identity.
+    network_map = cover(Image.open(SOURCE / "Gabriel_Colony_Network_Map.png").convert("RGBA"), (1600, 900), center=(0.50, 0.50))
+    save_dds(network_map, SCREENS / "Gabriel_Colony_Network_Map.dds")
 
     # Canonical object crops from the supplied concept sheet.
     node_master = crop_master(concept, (750, 423, 936, 594))
