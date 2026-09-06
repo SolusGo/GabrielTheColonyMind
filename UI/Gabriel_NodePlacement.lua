@@ -16,6 +16,7 @@ local gPlacementOpen = false
 local gDashboardOpen = false
 local gCityScreenOpen = false
 local gDiplomacyOpen = false
+local gDiplomacyPopups = {}
 local gSelectedCityID = nil
 local gCityDropdownEntries = {}
 local RefreshDashboard
@@ -69,7 +70,7 @@ local function IsDiplomacyOpen()
 end
 
 local function IsOverlayBlocked()
-    return gCityScreenOpen or IsDiplomacyOpen()
+    return gCityScreenOpen or IsDiplomacyOpen() or next(gDiplomacyPopups) ~= nil
 end
 
 local function HasBuilding(city, buildingID)
@@ -104,7 +105,8 @@ local function NodeOwner(plot)
     -- Older saves may contain a Node before the persistent builder key was
     -- introduced.  Owned plots still provide a safe ownership fallback.
     local plotOwner = plot:GetOwner()
-    return plotOwner ~= nil and plotOwner or -1
+    if IsGabrielPlayer(Players[plotOwner]) then return plotOwner end
+    return -1
 end
 
 local function IsActiveNodeForPlayer(plot, playerID)
@@ -549,6 +551,30 @@ local function HideOverlayForScreen()
     gDashboardOpen = false
     Controls.NetworkPanel:SetHide(true)
     Controls.NetworkButton:SetHide(true)
+end
+
+local function IsCityStatePopup(popupType)
+    return popupType ~= nil and (
+        popupType == ButtonPopupTypes.BUTTONPOPUP_CITY_STATE_DIPLO
+        or popupType == ButtonPopupTypes.BUTTONPOPUP_CITY_STATE_MESSAGE
+        or popupType == ButtonPopupTypes.BUTTONPOPUP_CITY_STATE_GREETING)
+end
+
+if Events.SerialEventGameMessagePopupShown ~= nil then
+    Events.SerialEventGameMessagePopupShown.Add(function(info)
+        if info ~= nil and IsCityStatePopup(info.Type) then
+            gDiplomacyPopups[info.Type] = true
+            HideOverlayForScreen()
+        end
+    end)
+end
+if Events.SerialEventGameMessagePopupProcessed ~= nil then
+    Events.SerialEventGameMessagePopupProcessed.Add(function(popupType)
+        if IsCityStatePopup(popupType) then
+            gDiplomacyPopups[popupType] = nil
+            RefreshDashboard()
+        end
+    end)
 end
 
 if Events.SerialEventEnterCityScreen ~= nil then

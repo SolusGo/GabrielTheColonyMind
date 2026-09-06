@@ -107,6 +107,11 @@ local function NodeOwner(plot)
     local cached = nodeCache[index]
     if cached ~= nil then return cached end
     local saved = SavedNumber('GABRIEL_NODE_OWNER_' .. tostring(index), -1)
+    if saved < 0 and plot:GetImprovementType() == IMPROVEMENT_NODE
+        and IsGabrielPlayer(Players[plot:GetOwner()]) then
+        saved = plot:GetOwner()
+        SetSavedNumber('GABRIEL_NODE_OWNER_' .. tostring(index), saved)
+    end
     if saved >= 0 then
         nodeCache[index] = saved
     end
@@ -215,7 +220,7 @@ local function RebuildNodeCache()
     for index = 0, Map.GetNumPlots() - 1 do
         local plot = Map.GetPlotByIndex(index)
         if plot ~= nil and plot:GetImprovementType() == IMPROVEMENT_NODE then
-            local owner = SavedNumber('GABRIEL_NODE_OWNER_' .. tostring(index), -1)
+            local owner = NodeOwner(plot)
             if owner >= 0 then nodeCache[index] = owner end
         end
     end
@@ -486,7 +491,7 @@ local function OnCityConstructed(playerID, cityID, buildingType)
     if buildingType ~= BUILDING_NEXUS then return end
     local player = Players[playerID]
     local city = player and player:GetCityByID(cityID) or nil
-    if city ~= nil then UpdateCityNetwork(playerID, city) end
+    if city ~= nil then RefreshPlayerNetwork(playerID) end
 end
 
 local function OnBuildFinished(playerID, x, y)
