@@ -86,7 +86,7 @@ SELECT
  'TXT_KEY_CIV_GABRIEL_STRATEGY', 1, 0,
  'TXT_KEY_CIV_GABRIEL_SHORT_DESC', 'TXT_KEY_CIV_GABRIEL_ADJECTIVE',
  'PLAYERCOLOR_GABRIEL', ArtDefineTag, ArtStyleType, ArtStyleSuffix, ArtStylePrefix,
- 0, 'GABRIEL_CIV_ATLAS', 'GABRIEL_ALPHA_ATLAS', 'Gabriel_Colony_Network_Map.dds',
+ 0, 'GABRIEL_CIV_ATLAS', 'GABRIEL_ALPHA_ATLAS', 'Gabriel_Selection_Map.dds',
  'TXT_KEY_CIV5_DOM_GABRIEL_TEXT', 'Gabriel_Colony_Network_Map.dds', '', SoundtrackTag
 FROM Civilizations WHERE Type = 'CIVILIZATION_AMERICA';
 

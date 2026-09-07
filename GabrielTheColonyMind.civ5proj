@@ -127,12 +127,14 @@
     <Content Include="Art\Screens\Gabriel_DOM.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
     <Content Include="Art\Screens\Gabriel_Map.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
     <Content Include="Art\Screens\Gabriel_Colony_Network_Map.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
+    <Content Include="Art\Screens\Gabriel_Selection_Map.dds"><ImportIntoVFS>True</ImportIntoVFS></Content>
     <Content Include="Art\Source\Gabriel_Concept_Sheet.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
     <Content Include="Art\Source\Gabriel_Leader_Master.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
     <Content Include="Art\Source\Gabriel_Swarm_Host_Icon.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
     <Content Include="Art\Source\Gabriel_Civ_Icon.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
     <Content Include="Art\Source\Gabriel_Colony_Nexus_Icon.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
     <Content Include="Art\Source\Gabriel_Colony_Network_Map.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
+    <Content Include="Art\Source\Gabriel_Selection_Map.png"><ImportIntoVFS>False</ImportIntoVFS></Content>
     <Content Include="README.md"><ImportIntoVFS>False</ImportIntoVFS></Content>
     <Content Include="PATCHNOTES.md"><ImportIntoVFS>False</ImportIntoVFS></Content>
     <Content Include="IMPLEMENTATION_NOTES.md"><ImportIntoVFS>False</ImportIntoVFS></Content>
