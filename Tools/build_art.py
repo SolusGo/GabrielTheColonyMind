@@ -97,25 +97,41 @@ def pad_portrait(portrait: Image.Image, size: int, fill: float) -> Image.Image:
 
 
 def ant_mark(size: int, alpha_only=False) -> Image.Image:
-    scale = size / 256.0
-    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0) if alpha_only else DARK)
-    draw = ImageDraw.Draw(canvas)
-    color = (255, 255, 255, 255) if alpha_only else GOLD
-    width = max(2, round(9 * scale))
-    cx = size // 2
-    # Ant body: head, thorax, abdomen.
-    draw.ellipse((cx - 25 * scale, 31 * scale, cx + 25 * scale, 81 * scale), fill=color)
-    draw.ellipse((cx - 31 * scale, 87 * scale, cx + 31 * scale, 143 * scale), fill=color)
-    draw.ellipse((cx - 44 * scale, 145 * scale, cx + 44 * scale, 232 * scale), fill=color)
-    # Antennae and six legs.
-    draw.line((cx - 13 * scale, 38 * scale, cx - 54 * scale, 5 * scale), fill=color, width=width)
-    draw.line((cx + 13 * scale, 38 * scale, cx + 54 * scale, 5 * scale), fill=color, width=width)
-    for y, reach, end_y in ((103, 91, 72), (120, 105, 120), (137, 91, 176)):
-        draw.line((cx - 21 * scale, y * scale, cx - reach * scale, end_y * scale), fill=color, width=width)
-        draw.line((cx + 21 * scale, y * scale, cx + reach * scale, end_y * scale), fill=color, width=width)
-    if not alpha_only:
-        draw.ellipse((4 * scale, 4 * scale, 252 * scale, 252 * scale), outline=GOLD, width=max(2, round(6 * scale)))
-        draw.ellipse((14 * scale, 14 * scale, 242 * scale, 242 * scale), outline=(91, 61, 22, 255), width=max(1, round(3 * scale)))
+    # A connected heraldic silhouette: bent antennae, six jointed legs and
+    # a distinct narrow waist. Render large first so 16px city emblems retain
+    # smooth contours instead of the old independently rounded 2px strokes.
+    supersample = 4
+    mask = Image.new("L", (256 * supersample, 256 * supersample))
+    draw = ImageDraw.Draw(mask)
+    stroke = 16 if size <= 24 else 13
+
+    def limb(points, width):
+        draw.line([(x * supersample, y * supersample) for x, y in points],
+                  fill=255, width=width * supersample, joint="curve")
+
+    def oval(box):
+        draw.ellipse(tuple(v * supersample for v in box), fill=255)
+
+    for reflected in (False, True):
+        def mirror(points):
+            return [(256 - x if reflected else x, y) for x, y in points]
+        limb(mirror([(113, 55), (98, 35), (91, 20)]), stroke)
+        limb(mirror([(114, 107), (79, 94), (64, 61)]), stroke)
+        limb(mirror([(110, 124), (66, 129), (32, 115)]), stroke)
+        limb(mirror([(116, 140), (80, 166), (64, 202)]), stroke)
+    limb([(128, 78), (128, 170)], 14)
+    oval((101, 44, 155, 92))
+    oval((107, 103, 149, 147))
+    oval((90, 163, 166, 236))
+    alpha = mask.resize((size, size), RESAMPLE)
+    # White RGB even under transparent pixels prevents dark fringes when
+    # Civ V tints/filter-samples the emblem with the player's color.
+    mark = Image.new("RGBA", (size, size), (255, 255, 255, 255) if alpha_only else GOLD)
+    mark.putalpha(alpha)
+    if alpha_only:
+        return mark
+    canvas = Image.new("RGBA", (size, size), DARK)
+    canvas.alpha_composite(mark)
     return canvas
 
 
@@ -183,7 +199,9 @@ def build() -> None:
         save_dds(pad_portrait(circle_portrait(leader_master, size, center=(0.48, 0.30)), size, 0.75), ATLASES / f"Gabriel_Leader_{size}.dds")
 
     for size in (128, 64, 48, 32, 24, 16):
-        save_dds(ant_mark(size, alpha_only=True), ATLASES / f"Gabriel_Alpha_{size}.dds")
+        # Tiny tintable masks benefit from full 8-bit alpha rather than DXT5
+        # block compression, especially at the city banner's 16/24px sizes.
+        ant_mark(size, alpha_only=True).save(ATLASES / f"Gabriel_Alpha_{size}.dds", format="DDS")
 
 
 if __name__ == "__main__":

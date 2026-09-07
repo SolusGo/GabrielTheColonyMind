@@ -32,12 +32,12 @@
     <File md5="4177E3CABCF3FB1B40D9706A63DCEB08" import="0">UI/Gabriel_NodePlacement.xml</File>
     <File md5="41EC21AF4C971E32047FDE83B2082B91" import="0">UI/Gabriel_NodePlacement.lua</File>
     <File md5="469481B677DBD43FE533B15F3232A7E3" import="1">Art/Gabriel_LeaderScene.xml</File>
-    <File md5="C844F1CCE1253FBB83020DED9A388B0F" import="1">Art/Atlases/Gabriel_Alpha_128.dds</File>
-    <File md5="F9B7D6108FF488C30024D2F4BB0F6658" import="1">Art/Atlases/Gabriel_Alpha_64.dds</File>
-    <File md5="2A0E6F0F0A2F4299BD8C21582413F070" import="1">Art/Atlases/Gabriel_Alpha_48.dds</File>
-    <File md5="63CA0708DDE78727A9C7148C99DFE3B8" import="1">Art/Atlases/Gabriel_Alpha_32.dds</File>
-    <File md5="0B65FF502672A4D6E2B0AD8D6CCC48B8" import="1">Art/Atlases/Gabriel_Alpha_24.dds</File>
-    <File md5="F0CF0959796ABD52240E348DA60C8F77" import="1">Art/Atlases/Gabriel_Alpha_16.dds</File>
+    <File md5="9398ABD3284AAC8C0477493D357A5614" import="1">Art/Atlases/Gabriel_Alpha_128.dds</File>
+    <File md5="E65896D560C85E8B9A3D6F6EBA1E4150" import="1">Art/Atlases/Gabriel_Alpha_64.dds</File>
+    <File md5="79CC638836BEB9101C85A78825C72A40" import="1">Art/Atlases/Gabriel_Alpha_48.dds</File>
+    <File md5="4A6319D0EECA73C256830063182C2066" import="1">Art/Atlases/Gabriel_Alpha_32.dds</File>
+    <File md5="D2158AAF0F046AFB183FF43A93FE96DB" import="1">Art/Atlases/Gabriel_Alpha_24.dds</File>
+    <File md5="834B4ECB418B4EA36110E30D79D7E186" import="1">Art/Atlases/Gabriel_Alpha_16.dds</File>
     <File md5="8648EF31C183601B33F2B68576E77741" import="1">Art/Atlases/Gabriel_Civ_256.dds</File>
     <File md5="587012F4975AC6C93626639565D64BE3" import="1">Art/Atlases/Gabriel_Civ_128.dds</File>
     <File md5="B58CF33DBF5D4BC9010DD57C16BFCD1A" import="1">Art/Atlases/Gabriel_Civ_80.dds</File>
@@ -69,7 +69,7 @@
     <File md5="49E086A9E4D1245696D6CAFACBCE3F83" import="0">PATCHNOTES.md</File>
     <File md5="70BCD19CD5133066E3866E7BB7D60ECD" import="0">IMPLEMENTATION_NOTES.md</File>
     <File md5="3C7D43275B28BE59B1E4306AFBF1F171" import="0">TESTING.md</File>
-    <File md5="BC3819940A995D88E4DED743D6550AF5" import="0">Tools/build_art.py</File>
+    <File md5="69DDE7CE461B62DFA8ED760CA1651F25" import="0">Tools/build_art.py</File>
     <File md5="C9777167069EAD10E2309088E13688B6" import="0">Tools/validate_database.py</File>
   </Files>
   <Actions>
