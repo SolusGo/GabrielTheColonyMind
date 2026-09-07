@@ -29,8 +29,8 @@
     <File md5="23878D198CB3B718DDDBD7505C51DB80" import="0">SQL/00_Gabriel_Core.sql</File>
     <File md5="FD14F61AB3A5214A721181681DDD9084" import="0">SQL/10_Gabriel_Text.sql</File>
     <File md5="7F95E4B4CECE10E753F9D7E93CEC251D" import="0">Lua/Gabriel_Core.lua</File>
-    <File md5="2E204A6E270D037D8CAEFCE3216A6764" import="0">UI/Gabriel_NodePlacement.xml</File>
-    <File md5="94720038E22D3B1B89C53C904E82ECCA" import="0">UI/Gabriel_NodePlacement.lua</File>
+    <File md5="4177E3CABCF3FB1B40D9706A63DCEB08" import="0">UI/Gabriel_NodePlacement.xml</File>
+    <File md5="41EC21AF4C971E32047FDE83B2082B91" import="0">UI/Gabriel_NodePlacement.lua</File>
     <File md5="469481B677DBD43FE533B15F3232A7E3" import="1">Art/Gabriel_LeaderScene.xml</File>
     <File md5="C844F1CCE1253FBB83020DED9A388B0F" import="1">Art/Atlases/Gabriel_Alpha_128.dds</File>
     <File md5="F9B7D6108FF488C30024D2F4BB0F6658" import="1">Art/Atlases/Gabriel_Alpha_64.dds</File>

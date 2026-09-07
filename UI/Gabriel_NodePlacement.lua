@@ -383,6 +383,12 @@ local function RebuildCityDropdown(snapshot)
 end
 
 local function RefreshSelectedCity(cityStatus)
+    -- Six readable connection markers mirror adjacent Nodes, not empire totals.
+    for index = 1, 6 do
+        local connected = cityStatus ~= nil and index <= cityStatus.adjacentNodes
+        Controls['ConnectionPip' .. tostring(index)]:SetColor(connected
+            and Vector4(0.95, 0.80, 0.47, 1.0) or Vector4(0.19, 0.23, 0.24, 1.0))
+    end
     if cityStatus == nil then
         Controls.CityNameLabel:SetText('No Colony City')
         Controls.CityPopulationLabel:SetText('0 [ICON_CITIZEN]')
@@ -405,6 +411,8 @@ local function RefreshSelectedCity(cityStatus)
     local percent = math.floor((cityStatus.timer * 100) / math.max(1, cityStatus.interval))
     Controls.PreparationFill:SetSizeX(math.max(1, math.floor(358 * percent / 100)))
     Controls.PreparationPercentLabel:SetText(tostring(percent) .. '%')
+    Controls.PreparationFill:SetColor(cityStatus.pending
+        and Vector4(0.49, 0.83, 0.94, 1.0) or Vector4(0.85, 0.64, 0.22, 1.0))
     Controls.PreparationStateLabel:SetText(cityStatus.pending
         and '[COLOR_POSITIVE_TEXT]READY[ENDCOLOR]'
         or (tostring(cityStatus.timer) .. ' / ' .. tostring(cityStatus.interval) .. ' turns'))
@@ -430,8 +438,8 @@ local function RefreshSelectedCity(cityStatus)
         Controls.NexusStatusLabel:SetText('Colony Nexus not constructed.[NEWLINE]Build one to convert adjacent Nodes into flat Science and detection coverage.')
     end
     Controls.SelectedCitySummaryLabel:SetText(cityStatus.nexus
-        and (cityStatus.name .. ' links ' .. tostring(nodes) .. ' Nodes through its Nexus.')
-        or (cityStatus.name .. ' has ' .. tostring(nodes) .. ' local network connections.'))
+        and ('NEXUS ONLINE  •  ' .. tostring(nodes) .. ' local connections')
+        or ('LOCAL NETWORK  •  ' .. tostring(nodes) .. ' adjacent connections'))
     Controls.ReadyNodeButton:SetHide(not cityStatus.pending)
 end
 
@@ -468,6 +476,13 @@ RefreshDashboard = function()
     Controls.ReadyCountDetail:SetText(tostring(preparing) .. ' preparing')
     Controls.CoveredCountValue:SetText(tostring(snapshot.coveredUnits))
     Controls.CoveredCountDetail:SetText(tostring(snapshot.militaryUnits) .. ' total military')
+    local function FillMeter(control, value, total)
+        control:SetHide(value <= 0 or total <= 0)
+        control:SetSizeX(math.max(1, math.floor(222 * math.min(1, value / math.max(1, total)))))
+    end
+    FillMeter(Controls.NodeHealthFill, snapshot.activeNodes, snapshot.activeNodes + snapshot.pillagedNodes)
+    FillMeter(Controls.ReadyCitiesFill, snapshot.readyCities, cityCount)
+    FillMeter(Controls.UnitCoverageFill, snapshot.coveredUnits, snapshot.militaryUnits)
 
     local state = 'NETWORK FORMING'
     if snapshot.readyCities > 0 then
@@ -478,8 +493,11 @@ RefreshDashboard = function()
         state = 'NETWORK EXPANDING'
     end
     Controls.EmpireStateLabel:SetText(state)
-    Controls.NetworkButtonLabel:SetText('[ICON_RESEARCH] COLONY NETWORK  •  '
-        .. tostring(snapshot.activeNodes) .. ' NODES')
+    Controls.NetworkButtonLabel:SetText('[ICON_RESEARCH] COLONY NETWORK')
+    Controls.NetworkButtonDetail:SetText(tostring(snapshot.activeNodes) .. ' active Nodes  •  '
+        .. (snapshot.readyCities > 0
+            and ('[COLOR_POSITIVE_TEXT]' .. tostring(snapshot.readyCities) .. ' ready to place[ENDCOLOR]')
+            or (tostring(preparing) .. ' cities preparing')))
     Controls.NetworkButton:SetToolTipString('COLONY NETWORK[NEWLINE]'
         .. tostring(snapshot.activeNodes) .. ' active Nodes[NEWLINE]'
         .. tostring(snapshot.readyCities) .. ' cities ready to place[NEWLINE]'

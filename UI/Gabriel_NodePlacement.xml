@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Context ID="GabrielNodePlacement">
-  <GridButton ID="NetworkButton" Anchor="R,T" Offset="24,96" Size="292,44" ToolTip="Open the Colony Network dashboard" Style="BaseButton" Hidden="1">
-    <Label ID="NetworkButtonLabel" Anchor="C,C" Size="276,26" Font="TwCenMT18" FontStyle="Shadow" String="[ICON_RESEARCH] COLONY NETWORK" Color="238,205,126,255" />
+  <GridButton ID="NetworkButton" Anchor="R,T" Offset="24,96" Size="292,56" ToolTip="Open the Colony Network dashboard" Style="BaseButton" Hidden="1">
+    <Box Anchor="L,C" Offset="8,0" Size="3,36" Color="218,163,55,235" />
+    <Label ID="NetworkButtonLabel" Anchor="C,T" Offset="0,7" Size="264,24" Font="TwCenMT18" FontStyle="Shadow" String="[ICON_RESEARCH] COLONY NETWORK" Color="238,205,126,255" />
+    <Label ID="NetworkButtonDetail" Anchor="C,T" Offset="0,31" Size="264,18" Font="TwCenMT14" FontStyle="Shadow" String="Preparing the next connection" Color="177,193,198,255" />
   </GridButton>
 
   <Grid ID="NetworkPanel" Anchor="C,C" Size="860,600" Style="Grid9DetailFive140" Hidden="1" ConsumeMouse="1">
     <Box Style="MenuLeftSideTreatment" />
     <Box Style="MenuRightSideTreatment" />
-    <Box Anchor="C,C" Offset="0,10" Size="812,532" Color="8,17,25,232" />
-    <Box Anchor="C,T" Offset="0,10" Size="812,72" Color="17,37,51,245" />
+    <Image Anchor="C,C" Offset="0,10" Size="812,456" Texture="Gabriel_Colony_Network_Map.dds" />
+    <Box Anchor="C,C" Offset="0,10" Size="812,532" Color="8,14,19,205" />
+    <Box Anchor="C,T" Offset="0,10" Size="812,72" Color="18,27,31,235" />
     <Box Anchor="C,T" Offset="0,81" Size="812,3" Color="218,163,55,230" />
 
     <Image ID="NetworkCivIcon" Anchor="L,T" Offset="36,17" Size="64,64" />
     <Label Anchor="L,T" Offset="112,18" Size="560,31" Font="TwCenMT24" FontStyle="Shadow" String="{TXT_KEY_GABRIEL_NETWORK_PANEL_TITLE}" Color="242,205,119,255" />
     <Label Anchor="L,T" Offset="113,51" Size="550,21" Font="TwCenMT16" FontStyle="Shadow" String="{TXT_KEY_GABRIEL_NETWORK_PANEL_SUBTITLE}" Color="170,196,210,255" />
     <Label ID="NetworkTurnLabel" Anchor="R,T" Offset="38,34" Size="140,22" Font="TwCenMT16" FontStyle="Shadow" String="TURN 0" Color="225,205,169,255" />
+    <Label Anchor="R,T" Offset="38,58" Size="140,16" Font="TwCenMT14" FontStyle="Shadow" String="COLONY COMMAND" Color="170,153,114,255" />
 
     <Grid Anchor="C,T" Offset="-270,96" Size="250,92" Style="GridBlackIndent8" ToolTip="Active, unpillaged Colony Nodes that still belong to the Colony.">
       <Box Anchor="L,C" Offset="8,0" Size="4,76" Color="218,163,55,235" />
@@ -22,6 +26,8 @@
       <Label Anchor="L,T" Offset="94,14" Size="138,18" Font="TwCenMT14" FontStyle="Shadow" String="{TXT_KEY_GABRIEL_NETWORK_ACTIVE_NODES}" Color="200,180,134,255" />
       <Label ID="NodeCountValue" Anchor="L,T" Offset="94,34" Size="138,31" Font="TwCenMT24" FontStyle="Shadow" String="0" Color="242,205,119,255" />
       <Label ID="NodeCountDetail" Anchor="L,T" Offset="94,66" Size="138,18" Font="TwCenMT14" FontStyle="Shadow" String="0 pillaged" Color="170,196,210,255" />
+      <Box Anchor="L,B" Offset="14,5" Size="222,3" Color="37,45,48,255" />
+      <Box ID="NodeHealthFill" Anchor="L,B" Offset="14,5" Size="1,3" Color="218,163,55,255" />
     </Grid>
 
     <Grid Anchor="C,T" Offset="0,96" Size="250,92" Style="GridBlackIndent8" ToolTip="Cities whose next Colony Node has completed preparation.">
@@ -30,6 +36,8 @@
       <Label Anchor="L,T" Offset="94,14" Size="138,18" Font="TwCenMT14" FontStyle="Shadow" String="{TXT_KEY_GABRIEL_NETWORK_READY_CITIES}" Color="176,205,218,255" />
       <Label ID="ReadyCountValue" Anchor="L,T" Offset="94,34" Size="138,31" Font="TwCenMT24" FontStyle="Shadow" String="0" Color="125,211,239,255" />
       <Label ID="ReadyCountDetail" Anchor="L,T" Offset="94,66" Size="138,18" Font="TwCenMT14" FontStyle="Shadow" String="0 preparing" Color="170,196,210,255" />
+      <Box Anchor="L,B" Offset="14,5" Size="222,3" Color="37,45,48,255" />
+      <Box ID="ReadyCitiesFill" Anchor="L,B" Offset="14,5" Size="1,3" Color="125,211,239,255" />
     </Grid>
 
     <Grid Anchor="C,T" Offset="270,96" Size="250,92" Style="GridBlackIndent8" ToolTip="Military units currently receiving Colony Network combat and healing effects.">
@@ -38,6 +46,8 @@
       <Label Anchor="L,T" Offset="94,14" Size="138,18" Font="TwCenMT14" FontStyle="Shadow" String="{TXT_KEY_GABRIEL_NETWORK_COVERED_UNITS}" Color="224,183,145,255" />
       <Label ID="CoveredCountValue" Anchor="L,T" Offset="94,34" Size="138,31" Font="TwCenMT24" FontStyle="Shadow" String="0" Color="238,164,91,255" />
       <Label ID="CoveredCountDetail" Anchor="L,T" Offset="94,66" Size="138,18" Font="TwCenMT14" FontStyle="Shadow" String="0 total military" Color="170,196,210,255" />
+      <Box Anchor="L,B" Offset="14,5" Size="222,3" Color="37,45,48,255" />
+      <Box ID="UnitCoverageFill" Anchor="L,B" Offset="14,5" Size="1,3" Color="238,164,91,255" />
     </Grid>
 
     <Label Anchor="L,T" Offset="27,202" Size="170,22" Font="TwCenMT16" FontStyle="Shadow" String="{TXT_KEY_GABRIEL_NETWORK_SELECT_CITY}" Color="218,177,86,255" />
@@ -57,7 +67,13 @@
       <Label ID="PreparationDetailLabel" Anchor="L,T" Offset="18,115" Size="364,36" WrapWidth="364" LeadingOffset="-2" Font="TwCenMT16" FontStyle="Shadow" String="A new Node is being prepared." Color="177,193,198,255" />
 
       <Label Anchor="L,T" Offset="18,162" Size="220,20" Font="TwCenMT16" FontStyle="Shadow" String="{TXT_KEY_GABRIEL_NETWORK_CONNECTIONS}" Color="218,177,86,255" />
-      <Label ID="AdjacentNodesLabel" Anchor="L,T" Offset="18,190" Size="364,24" Font="TwCenMT18" FontStyle="Shadow" String="0 adjacent Nodes" Color="234,219,182,255" />
+      <Label ID="AdjacentNodesLabel" Anchor="L,T" Offset="18,190" Size="235,24" Font="TwCenMT16" FontStyle="Shadow" String="0 adjacent Nodes" Color="234,219,182,255" />
+      <Box ID="ConnectionPip1" Anchor="L,T" Offset="270,194" Size="12,12" Color="48,58,62,255" ToolTip="Each illuminated marker represents one active adjacent Colony Node. Maximum six." />
+      <Box ID="ConnectionPip2" Anchor="L,T" Offset="289,194" Size="12,12" Color="48,58,62,255" />
+      <Box ID="ConnectionPip3" Anchor="L,T" Offset="308,194" Size="12,12" Color="48,58,62,255" />
+      <Box ID="ConnectionPip4" Anchor="L,T" Offset="327,194" Size="12,12" Color="48,58,62,255" />
+      <Box ID="ConnectionPip5" Anchor="L,T" Offset="346,194" Size="12,12" Color="48,58,62,255" />
+      <Box ID="ConnectionPip6" Anchor="L,T" Offset="365,194" Size="12,12" Color="48,58,62,255" />
       <Label ID="CityBonusLabel" Anchor="L,T" Offset="18,218" Size="364,24" Font="TwCenMT16" FontStyle="Shadow" String="+0% Science   •   +0% City Defense" Color="125,211,239,255" />
       <Label ID="NexusStatusLabel" Anchor="L,T" Offset="18,247" Size="364,42" WrapWidth="364" LeadingOffset="-2" Font="TwCenMT16" FontStyle="Shadow" String="Colony Nexus not constructed" Color="177,193,198,255" />
     </Grid>
@@ -72,10 +88,10 @@
       <Label Anchor="L,T" Offset="18,143" Size="364,22" Font="TwCenMT16" FontStyle="Shadow" String="[ICON_RESEARCH] Nodes: +1 Science, +1 Production" Color="125,211,239,255" />
       <Label Anchor="L,T" Offset="18,171" Size="364,38" WrapWidth="364" LeadingOffset="-2" Font="TwCenMT16" FontStyle="Shadow" String="Adjacent city links add +1% Science and +1% Defensive Strength per Node." Color="177,210,221,255" />
       <Label Anchor="L,T" Offset="18,217" Size="364,38" WrapWidth="364" LeadingOffset="-2" Font="TwCenMT16" FontStyle="Shadow" String="A Colony Nexus adds +1 Science per adjacent Node and enables submarine detection." Color="177,210,221,255" />
-      <Label ID="SelectedCitySummaryLabel" Anchor="L,T" Offset="18,263" Size="364,25" Font="TwCenMT18" FontStyle="Shadow" String="Selected city contributes 0 connected Nodes." Color="242,205,119,255" />
+      <Label ID="SelectedCitySummaryLabel" Anchor="L,T" Offset="18,263" Size="364,25" Font="TwCenMT16" FontStyle="Shadow" String="Selected city contributes 0 connected Nodes." Color="242,205,119,255" />
     </Grid>
 
-    <Label ID="NetworkFooterLabel" Anchor="L,B" Offset="35,18" Size="370,20" Font="TwCenMT14" FontStyle="Shadow" String="Pillaged Nodes provide no network effects." Color="167,184,189,255" />
+    <Label ID="NetworkFooterLabel" Anchor="L,B" Offset="35,12" Size="370,36" WrapWidth="370" Font="TwCenMT14" FontStyle="Shadow" String="Pillaged Nodes provide no network effects." Color="167,184,189,255" />
     <GridButton ID="ViewCityButton" Anchor="R,B" Offset="320,12" Size="120,32" String="{TXT_KEY_GABRIEL_NETWORK_VIEW_CITY}" Style="BaseButton" />
     <GridButton ID="ReadyNodeButton" Anchor="R,B" Offset="180,12" Size="132,32" String="{TXT_KEY_GABRIEL_NETWORK_PLACE_READY}" Style="BaseButton" Hidden="1" />
     <GridButton ID="RefreshButton" Anchor="R,B" Offset="92,12" Size="80,32" String="{TXT_KEY_GABRIEL_NETWORK_REFRESH}" Style="BaseButton" />
