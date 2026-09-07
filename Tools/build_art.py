@@ -51,17 +51,27 @@ def supplied_icon(
     source: Image.Image,
     size: int,
     transparent_corners: bool = True,
-    crop: float = 0.055,
-    slot_fill: float = 1.0,
+    crop: float | None = None,
+    slot_fill: float = 0.78,
 ) -> Image.Image:
     """Fit supplied icon art to a Civ V slot with consistent visual padding.
 
-    The supplied masters contain a wide black margin around their circular
-    frames.  Cropping that margin before the atlas resize keeps the subject at
-    the same apparent scale as the game's stock 64/128 px icons.
+    Normalize the supplied gold rim before fitting it inside the transparent
+    atlas cell. The stock selection UI adds its own frame around the artwork;
+    filling an entire 64px cell makes our portrait larger than its neighbors.
     """
-    margin = round(min(source.size) * crop)
-    framed = source.crop((margin, margin, source.width - margin, source.height - margin))
+    if crop is None:
+        # The gold rim intersects both center scanlines. Ignore the black
+        # margin outside it, which differs between the three supplied masters.
+        rgb = source.convert("RGB")
+        xs = [x for x in range(rgb.width) if max(rgb.getpixel((x, rgb.height // 2))) >= 70]
+        ys = [y for y in range(rgb.height) if max(rgb.getpixel((rgb.width // 2, y))) >= 70]
+        if not xs or not ys:
+            raise ValueError("Icon master has no visible central rim")
+        framed = source.crop((xs[0], ys[0], xs[-1] + 1, ys[-1] + 1))
+    else:
+        margin = round(min(source.size) * crop)
+        framed = source.crop((margin, margin, source.width - margin, source.height - margin))
     icon_size = max(1, round(size * slot_fill))
     icon = cover(framed, (icon_size, icon_size))
     if transparent_corners:
@@ -74,6 +84,15 @@ def supplied_icon(
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     inset = (size - icon_size) // 2
     canvas.alpha_composite(icon, (inset, inset))
+    return canvas
+
+
+def pad_portrait(portrait: Image.Image, size: int, fill: float) -> Image.Image:
+    """Match the visible stock portrait diameter without changing atlas cells."""
+    inner = round(size * fill)
+    canvas = Image.new("RGBA", (size, size))
+    canvas.alpha_composite(portrait.resize((inner, inner), RESAMPLE),
+                           ((size - inner) // 2, (size - inner) // 2))
     return canvas
 
 
@@ -152,16 +171,16 @@ def build() -> None:
         save_dds(supplied_icon(civ_icon, size), ATLASES / f"Gabriel_Civ_{size}.dds")
         row = Image.new("RGBA", (size * 4, size), (0, 0, 0, 0))
         row.alpha_composite(
-            supplied_icon(swarm_host_icon, size, crop=0.0, slot_fill=0.92),
+            supplied_icon(swarm_host_icon, size),
             (0, 0),
         )
         row.alpha_composite(supplied_icon(colony_nexus_icon, size), (size, 0))
-        row.alpha_composite(circle_portrait(node_master, size, center=(0.45, 0.52)), (size * 2, 0))
-        row.alpha_composite(circle_portrait(infestation_master, size, center=(0.60, 0.45)), (size * 3, 0))
+        row.alpha_composite(pad_portrait(circle_portrait(node_master, size, center=(0.45, 0.52)), size, 0.78), (size * 2, 0))
+        row.alpha_composite(pad_portrait(circle_portrait(infestation_master, size, center=(0.60, 0.45)), size, 0.78), (size * 3, 0))
         save_dds(row, ATLASES / f"Gabriel_Objects_{size}.dds")
 
     for size in (256, 128, 64):
-        save_dds(circle_portrait(leader_master, size, center=(0.48, 0.30)), ATLASES / f"Gabriel_Leader_{size}.dds")
+        save_dds(pad_portrait(circle_portrait(leader_master, size, center=(0.48, 0.30)), size, 0.75), ATLASES / f"Gabriel_Leader_{size}.dds")
 
     for size in (128, 64, 48, 32, 24, 16):
         save_dds(ant_mark(size, alpha_only=True), ATLASES / f"Gabriel_Alpha_{size}.dds")

@@ -27,7 +27,7 @@
   <Blocks />
   <Files>
     <File md5="23878D198CB3B718DDDBD7505C51DB80" import="0">SQL/00_Gabriel_Core.sql</File>
-    <File md5="FD14F61AB3A5214A721181681DDD9084" import="0">SQL/10_Gabriel_Text.sql</File>
+    <File md5="BDA5CE29C863361FB41B42EA4930B114" import="0">SQL/10_Gabriel_Text.sql</File>
     <File md5="7F95E4B4CECE10E753F9D7E93CEC251D" import="0">Lua/Gabriel_Core.lua</File>
     <File md5="4177E3CABCF3FB1B40D9706A63DCEB08" import="0">UI/Gabriel_NodePlacement.xml</File>
     <File md5="41EC21AF4C971E32047FDE83B2082B91" import="0">UI/Gabriel_NodePlacement.lua</File>
@@ -38,21 +38,21 @@
     <File md5="63CA0708DDE78727A9C7148C99DFE3B8" import="1">Art/Atlases/Gabriel_Alpha_32.dds</File>
     <File md5="0B65FF502672A4D6E2B0AD8D6CCC48B8" import="1">Art/Atlases/Gabriel_Alpha_24.dds</File>
     <File md5="F0CF0959796ABD52240E348DA60C8F77" import="1">Art/Atlases/Gabriel_Alpha_16.dds</File>
-    <File md5="B06CCD3C463B89160CA96D33C99C544A" import="1">Art/Atlases/Gabriel_Civ_256.dds</File>
-    <File md5="995F720914DB737F150A5CE6941962BB" import="1">Art/Atlases/Gabriel_Civ_128.dds</File>
-    <File md5="5416BABA059B26C6D013F7A7CE0EB137" import="1">Art/Atlases/Gabriel_Civ_80.dds</File>
-    <File md5="D40BCA41572D9952A92C9477E460BE3D" import="1">Art/Atlases/Gabriel_Civ_64.dds</File>
-    <File md5="B2F7D75E121F8A968375B0F58B5DA910" import="1">Art/Atlases/Gabriel_Civ_45.dds</File>
-    <File md5="D84690EF11237ECC92BC5A60D10DF432" import="1">Art/Atlases/Gabriel_Civ_32.dds</File>
-    <File md5="16DE088C1E418F5E2362CC9274EC8EA2" import="1">Art/Atlases/Gabriel_Leader_256.dds</File>
-    <File md5="8ABEB02EC65382C8691EAB4223E9A5AB" import="1">Art/Atlases/Gabriel_Leader_128.dds</File>
-    <File md5="011352C9BEE6419518400A61BF590EF3" import="1">Art/Atlases/Gabriel_Leader_64.dds</File>
-    <File md5="A622AF8B9A1B71109CC28DF682DC5757" import="1">Art/Atlases/Gabriel_Objects_256.dds</File>
-    <File md5="8372819949DC16C6B6C89EC59CADF30F" import="1">Art/Atlases/Gabriel_Objects_128.dds</File>
-    <File md5="A953196905C108E40196405CC2472898" import="1">Art/Atlases/Gabriel_Objects_80.dds</File>
-    <File md5="D6689A5F3816C15B727DE10319C41C39" import="1">Art/Atlases/Gabriel_Objects_64.dds</File>
-    <File md5="BDC1DF2A619A2206243AC41A8ADAA05C" import="1">Art/Atlases/Gabriel_Objects_45.dds</File>
-    <File md5="482041F07817E0A4369FE90558BA6CC7" import="1">Art/Atlases/Gabriel_Objects_32.dds</File>
+    <File md5="8648EF31C183601B33F2B68576E77741" import="1">Art/Atlases/Gabriel_Civ_256.dds</File>
+    <File md5="587012F4975AC6C93626639565D64BE3" import="1">Art/Atlases/Gabriel_Civ_128.dds</File>
+    <File md5="B58CF33DBF5D4BC9010DD57C16BFCD1A" import="1">Art/Atlases/Gabriel_Civ_80.dds</File>
+    <File md5="5BE6C0D8E1625FF2DFAF493A19EBFC56" import="1">Art/Atlases/Gabriel_Civ_64.dds</File>
+    <File md5="71B95864DE9337A32DC10841A37E3A9F" import="1">Art/Atlases/Gabriel_Civ_45.dds</File>
+    <File md5="0A14DD00B29E592171805C942D4F12A5" import="1">Art/Atlases/Gabriel_Civ_32.dds</File>
+    <File md5="D8244B666BD1F26696B4BD9FA6AA1EEF" import="1">Art/Atlases/Gabriel_Leader_256.dds</File>
+    <File md5="3301259E5E543980280F2504AA8D1FD8" import="1">Art/Atlases/Gabriel_Leader_128.dds</File>
+    <File md5="3A76E2D6C8B7AE3C8AC41DDB1CBF7C0A" import="1">Art/Atlases/Gabriel_Leader_64.dds</File>
+    <File md5="377DE385FBDBA50D3CFE70962C813142" import="1">Art/Atlases/Gabriel_Objects_256.dds</File>
+    <File md5="4C224B991FD86A63CF2FE6958B624F13" import="1">Art/Atlases/Gabriel_Objects_128.dds</File>
+    <File md5="66F9D645EA3788CE728AAAFA6F6C1D3B" import="1">Art/Atlases/Gabriel_Objects_80.dds</File>
+    <File md5="60F4214B167965BFE127E858E89E8C93" import="1">Art/Atlases/Gabriel_Objects_64.dds</File>
+    <File md5="57297D57D6B1C3E0C75B01BB45FDBCE2" import="1">Art/Atlases/Gabriel_Objects_45.dds</File>
+    <File md5="2762FFD32DFA53AE432833EF9E01D4B1" import="1">Art/Atlases/Gabriel_Objects_32.dds</File>
     <File md5="95FB015DAE12318E4963D21467B74BA8" import="1">Art/Screens/Gabriel_Diplomacy.dds</File>
     <File md5="B104484EC6487703B283385A10CD1CFE" import="1">Art/Screens/Gabriel_DOM.dds</File>
     <File md5="2E77569B41839E118BB84A848FC87CC9" import="1">Art/Screens/Gabriel_Map.dds</File>
@@ -69,7 +69,7 @@
     <File md5="49E086A9E4D1245696D6CAFACBCE3F83" import="0">PATCHNOTES.md</File>
     <File md5="70BCD19CD5133066E3866E7BB7D60ECD" import="0">IMPLEMENTATION_NOTES.md</File>
     <File md5="3C7D43275B28BE59B1E4306AFBF1F171" import="0">TESTING.md</File>
-    <File md5="571B3DF17902D1E52A5217149420DE0C" import="0">Tools/build_art.py</File>
+    <File md5="BC3819940A995D88E4DED743D6550AF5" import="0">Tools/build_art.py</File>
     <File md5="C9777167069EAD10E2309088E13688B6" import="0">Tools/validate_database.py</File>
   </Files>
   <Actions>

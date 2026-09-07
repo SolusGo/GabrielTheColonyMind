@@ -3,7 +3,7 @@ INSERT OR REPLACE INTO Language_en_US (Tag, Text) VALUES
 ('TXT_KEY_CIV_GABRIEL_SHORT_DESC', 'The Colony'),
 ('TXT_KEY_CIV_GABRIEL_ADJECTIVE', 'Colony'),
 ('TXT_KEY_LEADER_GABRIEL', 'Gabriel'),
-('TXT_KEY_TRAIT_GABRIEL_COLONY_NETWORK', 'Every city prepares a Colony Node every 30 turns on Standard speed. Nodes yield +1 [ICON_RESEARCH] Science and +1 [ICON_PRODUCTION] Production and reveal adjacent tiles. Nearby military units gain +3% Combat Strength, +5% attacking strength, and +3 healing. Each active Node adjacent to a city grants +1% [ICON_RESEARCH] Science and +1% City Defensive Strength.'),
+('TXT_KEY_TRAIT_GABRIEL_COLONY_NETWORK', 'Cities prepare Colony Nodes every 30 turns (Standard). Nodes provide Science, Production and vision, strengthen nearby troops, and boost adjacent cities. See Civilopedia for full bonuses.'),
 ('TXT_KEY_TRAIT_GABRIEL_COLONY_NETWORK_SHORT', 'Colony Network'),
 ('TXT_KEY_TRAIT_GABRIEL_COLONY_NETWORK_HELP', 'Every city generates a Colony Node every 30 turns on Standard speed. Colony Nodes provide +1 [ICON_RESEARCH] Science, +1 [ICON_PRODUCTION] Production, and vision of adjacent tiles. Military units within their influence gain +3% Combat Strength, +5% attacking strength, and +3 healing. Each active Node adjacent to a city provides +1% [ICON_RESEARCH] Science and +1% City Defensive Strength.'),
 
